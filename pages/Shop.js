@@ -1,6 +1,22 @@
 import Link from "next/link";
+const defaultEndpoint = 'http://localhost:3000/products';
 
-function Shop() {
+export async function getServerSideProps() {
+    const res = await fetch(defaultEndpoint);
+    const products = await res.json();
+    return {
+        props: {
+            products
+        }
+    }
+}
+function Shop(props) {
+    //const { results = [] } = products;
+    
+    
+    //console.log('produits',produits);
+    //console.log('here')
+    //console.log(props.href.state.produits);
     return (
         <div><>
             <meta charSet="utf-8" />
@@ -93,15 +109,20 @@ function Shop() {
                             <div className="row">
                                 <div className="col-md-3 col-sm-6">
                                     <div className="single-shop-product">
+                                    {console.log('products',props.products)}
+                                    {props.products.map(product => {
+                                           // const { id, name, imageName, price } = result;
+                                            return (
+                                                <ul key={product.id}  >
                                         <div className="product-upper">
-                                            <img src="img/product-2.jpg" alt="" />
+                                            <img href="http://localhost:3000/img/" alt={product.imageName} />
                                         </div>
                                         <h2>
                                             {" "}
-                                            <Link href="Product">Apple new mac book 2015 March </Link>
+                                            <a href="http://localhost:3000/products">{product.name} </a>
                                         </h2>
                                         <div className="product-carousel-price">
-                                            <ins>$899.00</ins> <del>$999.00</del>
+                                            <ins>${product.price}</ins> <del>${product.price-(product.discountRate/100)}</del>
                                         </div>
                                         <div className="product-option-shop">
                                             <a
@@ -115,283 +136,18 @@ function Shop() {
                                                 Add to cart
                                             </a>
                                         </div>
+                                        </ul>
+                                            )
+                                        })}
                                     </div>
                                 </div>
-                                <div className="col-md-3 col-sm-6">
-                                    <div className="single-shop-product">
-                                        <div className="product-upper">
-                                            <img src="img/product-1.jpg" alt="" />
-                                        </div>
-                                        <h2>
-                                            <a href="">Apple new mac book 2015 March :P</a>
-                                        </h2>
-                                        <div className="product-carousel-price">
-                                            <ins>$899.00</ins> <del>$999.00</del>
-                                        </div>
-                                        <div className="product-option-shop">
-                                            <a
-                                                className="add_to_cart_button"
-                                                data-quantity={1}
-                                                data-product_sku=""
-                                                data-product_id={70}
-                                                rel="nofollow"
-                                                href="/canvas/shop/?add-to-cart=70"
-                                            >
-                                                Add to cart
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-3 col-sm-6">
-                                    <div className="single-shop-product">
-                                        <div className="product-upper">
-                                            <img src="img/product-3.jpg" alt="" />
-                                        </div>
-                                        <h2>
-                                            <Link href="">Apple new mac book 2015 March :P</Link>
-                                        </h2>
-                                        <div className="product-carousel-price">
-                                            <ins>$899.00</ins> <del>$999.00</del>
-                                        </div>
-                                        <div className="product-option-shop">
-                                            <a
-                                                className="add_to_cart_button"
-                                                data-quantity={1}
-                                                data-product_sku=""
-                                                data-product_id={70}
-                                                rel="nofollow"
-                                                href="/canvas/shop/?add-to-cart=70"
-                                            >
-                                                Add to cart
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-3 col-sm-6">
-                                    <div className="single-shop-product">
-                                        <div className="product-upper">
-                                            <img src="img/product-4.jpg" alt="" />
-                                        </div>
-                                        <h2>
-                                            <Link href="">Apple new mac book 2015 March :P</Link>
-                                        </h2>
-                                        <div className="product-carousel-price">
-                                            <ins>$899.00</ins> <del>$999.00</del>
-                                        </div>
-                                        <div className="product-option-shop">
-                                            <a
-                                                className="add_to_cart_button"
-                                                data-quantity={1}
-                                                data-product_sku=""
-                                                data-product_id={70}
-                                                rel="nofollow"
-                                                href="/canvas/shop/?add-to-cart=70"
-                                            >
-                                                Add to cart
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-3 col-sm-6">
-                                    <div className="single-shop-product">
-                                        <div className="product-upper">
-                                            <img src="img/product-2.jpg" alt="" />
-                                        </div>
-                                        <h2>
-                                            <Link href="">Apple new mac book 2015 March :P</Link>
-                                        </h2>
-                                        <div className="product-carousel-price">
-                                            <ins>$899.00</ins> <del>$999.00</del>
-                                        </div>
-                                        <div className="product-option-shop">
-                                            <a
-                                                className="add_to_cart_button"
-                                                data-quantity={1}
-                                                data-product_sku=""
-                                                data-product_id={70}
-                                                rel="nofollow"
-                                                href="/canvas/shop/?add-to-cart=70"
-                                            >
-                                                Add to cart
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-3 col-sm-6">
-                                    <div className="single-shop-product">
-                                        <div className="product-upper">
-                                            <img src="img/product-1.jpg" alt="" />
-                                        </div>
-                                        <h2>
-                                            <Link href="">Apple new mac book 2015 March :P</Link>
-                                        </h2>
-                                        <div className="product-carousel-price">
-                                            <ins>$899.00</ins> <del>$999.00</del>
-                                        </div>
-                                        <div className="product-option-shop">
-                                            <a
-                                                className="add_to_cart_button"
-                                                data-quantity={1}
-                                                data-product_sku=""
-                                                data-product_id={70}
-                                                rel="nofollow"
-                                                href="/canvas/shop/?add-to-cart=70"
-                                            >
-                                                Add to cart
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-3 col-sm-6">
-                                    <div className="single-shop-product">
-                                        <div className="product-upper">
-                                            <img src="img/product-3.jpg" alt="" />
-                                        </div>
-                                        <h2>
-                                            <a href="">Apple new mac book 2015 March :P</a>
-                                        </h2>
-                                        <div className="product-carousel-price">
-                                            <ins>$899.00</ins> <del>$999.00</del>
-                                        </div>
-                                        <div className="product-option-shop">
-                                            <a
-                                                className="add_to_cart_button"
-                                                data-quantity={1}
-                                                data-product_sku=""
-                                                data-product_id={70}
-                                                rel="nofollow"
-                                                href="/canvas/shop/?add-to-cart=70"
-                                            >
-                                                Add to cart
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-3 col-sm-6">
-                                    <div className="single-shop-product">
-                                        <div className="product-upper">
-                                            <img src="img/product-4.jpg" alt="" />
-                                        </div>
-                                        <h2>
-                                            <a href="">Apple new mac book 2015 March :P</a>
-                                        </h2>
-                                        <div className="product-carousel-price">
-                                            <ins>$899.00</ins> <del>$999.00</del>
-                                        </div>
-                                        <div className="product-option-shop">
-                                            <a
-                                                className="add_to_cart_button"
-                                                data-quantity={1}
-                                                data-product_sku=""
-                                                data-product_id={70}
-                                                rel="nofollow"
-                                                href="/canvas/shop/?add-to-cart=70"
-                                            >
-                                                Add to cart
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-3 col-sm-6">
-                                    <div className="single-shop-product">
-                                        <div className="product-upper">
-                                            <img src="img/product-2.jpg" alt="" />
-                                        </div>
-                                        <h2>
-                                            <a href="">Apple new mac book 2015 March :P</a>
-                                        </h2>
-                                        <div className="product-carousel-price">
-                                            <ins>$899.00</ins> <del>$999.00</del>
-                                        </div>
-                                        <div className="product-option-shop">
-                                            <a
-                                                className="add_to_cart_button"
-                                                data-quantity={1}
-                                                data-product_sku=""
-                                                data-product_id={70}
-                                                rel="nofollow"
-                                                href="/canvas/shop/?add-to-cart=70"
-                                            >
-                                                Add to cart
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-3 col-sm-6">
-                                    <div className="single-shop-product">
-                                        <div className="product-upper">
-                                            <img src="img/product-1.jpg" alt="" />
-                                        </div>
-                                        <h2>
-                                            <a href="">Apple new mac book 2015 March :P</a>
-                                        </h2>
-                                        <div className="product-carousel-price">
-                                            <ins>$899.00</ins> <del>$999.00</del>
-                                        </div>
-                                        <div className="product-option-shop">
-                                            <a
-                                                className="add_to_cart_button"
-                                                data-quantity={1}
-                                                data-product_sku=""
-                                                data-product_id={70}
-                                                rel="nofollow"
-                                                href="/canvas/shop/?add-to-cart=70"
-                                            >
-                                                Add to cart
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-3 col-sm-6">
-                                    <div className="single-shop-product">
-                                        <div className="product-upper">
-                                            <img src="img/product-3.jpg" alt="" />
-                                        </div>
-                                        <h2>
-                                            <a href="">Apple new mac book 2015 March :P</a>
-                                        </h2>
-                                        <div className="product-carousel-price">
-                                            <ins>$899.00</ins> <del>$999.00</del>
-                                        </div>
-                                        <div className="product-option-shop">
-                                            <a
-                                                className="add_to_cart_button"
-                                                data-quantity={1}
-                                                data-product_sku=""
-                                                data-product_id={70}
-                                                rel="nofollow"
-                                                href="/canvas/shop/?add-to-cart=70"
-                                            >
-                                                Add to cart
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-3 col-sm-6">
-                                    <div className="single-shop-product">
-                                        <div className="product-upper">
-                                            <img src="img/product-4.jpg" alt="" />
-                                        </div>
-                                        <h2>
-                                            <a href="">Apple new mac book 2015 March :P</a>
-                                        </h2>
-                                        <div className="product-carousel-price">
-                                            <ins>$899.00</ins> <del>$999.00</del>
-                                        </div>
-                                        <div className="product-option-shop">
-                                            <a
-                                                className="add_to_cart_button"
-                                                data-quantity={1}
-                                                data-product_sku=""
-                                                data-product_id={70}
-                                                rel="nofollow"
-                                                href="/canvas/shop/?add-to-cart=70"
-                                            >
-                                                Add to cart
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                                
+                            
+                               
+                               
+                                
+                               
+                
                             </div>
                             <div className="row">
                                 <div className="col-md-12">

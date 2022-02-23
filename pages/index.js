@@ -1,11 +1,7 @@
 
 import Link from 'next/link'
+import Cookies from 'universal-cookie';
 
-function handleOnSubmitSearch(p){
-  p.preventDefault();
-  const{currentTarget={}}=p;
-  const fileds =A
-}
 
 function Home({ categories }) {
 
@@ -46,7 +42,7 @@ function Home({ categories }) {
                   style={{ marginTop: 30 }}
                   placeholder="Search products..."
                 />
-                <input type="button" defaultValue="Search" onSubmit={handleOnSubmitSearch} />
+                <input type="button" defaultValue="Search"/>
               </div>
               <div className="col-sm-4">
                 <div className="shopping-item">
@@ -70,7 +66,17 @@ function Home({ categories }) {
                  
       {categories.map((categorie) => (
         <li key={categorie.name} className="active">
-          <Link href={`http://localhost:3000/products?q=${categorie.name}`}>{categorie.name}</Link>
+          
+         
+          <Link
+    href={{
+      pathname: `/Shop`,
+      state: {
+        products: [],
+      },
+    }}>
+  {categorie.name}
+  </Link>
         </li>
       ))}
     </ul>
@@ -455,7 +461,7 @@ function Home({ categories }) {
 export async function getStaticProps() {
   const res = await fetch('http://localhost:3000/categories')
   const categories = await res.json()
-  console.log('cat',categories)
+  //console.log('cat',categories)
   
   
 
@@ -469,6 +475,9 @@ export async function getStaticProps() {
     revalidate: 10, // In seconds
   }
 }
+/*const cookies = new Cookies();
+cookies.set('myCat', 'Pacman', { path: '/' });
+console.log(cookies.get('myCat')); // Pacman*/
 
 
 export default Home;
