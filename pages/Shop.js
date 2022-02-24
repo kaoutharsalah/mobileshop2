@@ -1,18 +1,30 @@
 import Link from "next/link";
-const defaultEndpoint = 'http://localhost:3000/products';
 
+import {reactLocalStorage} from 'reactjs-localstorage';
+/*const defaultEndpoint = 'http://localhost:3000/products';
 export async function getServerSideProps() {
     const res = await fetch(defaultEndpoint);
     const products = await res.json();
+    
     return {
         props: {
             products
         }
     }
+}*/
+var productsFromStorage
+function displayLocalStorage(){
+    if(typeof localStorage !=='undefined'){
+       productsFromStorage = reactLocalStorage.getObject('products')
+     
+    }
+   
 }
+
+
 function Shop(props) {
     //const { results = [] } = products;
-    
+  
     
     //console.log('produits',produits);
     //console.log('here')
@@ -43,6 +55,7 @@ function Shop(props) {
                                     </h1>
                                 </div>
                             </div>
+                        
                             <div className="col-sm-4">
                                 <input
                                     type="text"
@@ -71,21 +84,19 @@ function Shop(props) {
                                     <li className="active">
                                         <Link href="/">Home</Link>
                                     </li>
-                                    <li>
-                                        <Link href="/Shop">Samsung</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/Shop">Apple</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/Shop">LG</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/Shop">Sony</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/Shop">Huawei</Link>
-                                    </li>
+                                    {displayLocalStorage()}
+                                    {productsFromStorage?.map((categorie) => (
+        <li key={categorie.name} className="active">
+          
+          <Link href="/Shop"
+          onClick={() =>getCategoriesByName(categorie.name)}>{categorie.name}</Link>
+          
+
+        </li>
+      ))}
+                                  
+                          
+                                 
                                 </ul>
                             </div>
                         </div>
@@ -106,14 +117,16 @@ function Shop(props) {
                     <div className="single-product-area">
                         <div className="zigzag-bottom" />
                         <div className="container">
+    
+                          
                             <div className="row">
                                 <div className="col-md-3 col-sm-6">
                                     <div className="single-shop-product">
-                                    {console.log('products',props.products)}
-                                    {props.products.map(product => {
-                                           // const { id, name, imageName, price } = result;
+                                    {displayLocalStorage()}
+                                    { productsFromStorage?.map(product => {
+                                           
                                             return (
-                                                <ul key={product.id}  >
+                                                <div key={product.id}  >
                                         <div className="product-upper">
                                             <img href="http://localhost:3000/img/" alt={product.imageName} />
                                         </div>
@@ -136,7 +149,7 @@ function Shop(props) {
                                                 Add to cart
                                             </a>
                                         </div>
-                                        </ul>
+                                        </div>
                                             )
                                         })}
                                     </div>
@@ -153,6 +166,7 @@ function Shop(props) {
                                 <div className="col-md-12">
                                     <nav aria-label="Page navigation example">
                                         <ul className="pagination justify-content-center">
+                                      
                                             <li className="page-item disabled">
                                                 <a className="page-link" href="#" tabIndex={-1}>
                                                     Previous
