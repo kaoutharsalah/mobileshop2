@@ -1,0 +1,20 @@
+
+.product_big_title_area {background: url(../../../public/img/crossword.png) repeat scroll 0 0 #5a88ca}
+.product_bit_title h2 {
+    font-family: raleway;
+    font-size: 50px;
+    font-weight: 200;
+    margin: 0;
+    padding: 50px 0;color: #fff;
+    text-align: center;
+  }
+  
+.single_product_area .zigzag_bottom {background-color: #f4f4f4}
+
+.single_product_area {
+  padding: 80px 0 130px;
+}
+
+.single_product:hover .product-hover a.add-to-cart-link {top: 32%;}
+.single_product:hover .product-hover a.view-details-link {bottom: 32%;}
+.single_product:hover .product-hover:after{left: 0}

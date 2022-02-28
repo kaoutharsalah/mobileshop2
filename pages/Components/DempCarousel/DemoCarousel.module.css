@@ -1,0 +1,25 @@
+.slider_area { width:80%; position:relative; margin:0 auto; padding:5px;}
+
+.carousel_control_prev:hover, .carousel_control_next:hover {
+    background-color: gray;
+
+}
+.product-carousel-price ins {
+    color: #5a88ca;
+    font-weight: 700;
+    margin-right: 5px;
+    text-decoration: none;
+  }
+
+  .product-carousel {
+    padding-top: 40px;
+  }
+
+  .carousel.carousel-fade .item { transition: opacity 1s ease-in-out }
+  .carousel.carousel-fade .active.left,
+  .carousel.carousel-fade .active.right {
+      left: 0;
+      z-index: 2;
+      opacity: 0;
+      filter: alpha(opacity=0);
+  }

@@ -1,0 +1,47 @@
+.item {
+    border: 1px solid #ddd;
+    float: right;
+    font-size: 18px;
+    margin-top: 40px;
+    padding: 10px;
+    position: relative;
+}
+.item a {
+    color: #666;
+}
+.cart_amunt {
+    color: #5a88ca;
+    font-weight: 700;
+}
+.product_count {
+    background: none repeat scroll 0 0 #5a88ca;
+    border-radius: 50%;
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    height: 20px;
+    padding-top: 2px;
+    position: absolute;
+    right: -10px;
+    text-align: center;
+    top: -10px;
+    width: 20px;
+}
+.item i.fa {
+    margin-left: 15px;
+}
+
+
+.item:hover {
+    background: none repeat scroll 0 0 #5a88ca;
+    border-color: #5a88ca;
+}
+.item:hover a {
+    color: #fff;text-decoration: none
+}
+.item:hover .cart_amunt {
+    color: #fff;
+}
+.item:hover .product_count {
+    background: none repeat scroll 0 0 #000;
+}

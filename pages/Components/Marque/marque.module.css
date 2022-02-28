@@ -1,0 +1,40 @@
+.promo_area {
+    background:#fbfbfb;
+    color: #fff;
+    padding: 40px 0 40px;
+  }
+
+ .promo_area .zigzag_bottom, .brands_area .zigzag_bottom{background: #f4f4f4}
+ .product-widget-area .zigzag_bottom{background: #f4f4f4;}
+.footer-top-area .zigzag_bottom{background: #f4f4f4}
+.single-product-area .zigzag_bottom {background-color: #f4f4f4}
+.brands_area {
+    border-top:1px solid #e5e5e5;
+    border-bottom:1px solid #e5e5e5;
+    color: #fff;
+    padding: 20px 0 20px;
+  }
+
+  .latest-product .owl-nav div:hover, .brand_wrapper .owl-nav div:hover, .related-products-wrapper .owl-nav div:hover {color: #FFF; background:#f95f5f;}
+  .brand_wrapper .owl-nav div {
+    border: 1px solid #fff;
+    color: #fff;
+    display: inline-block;
+    margin-left: 15px;
+    padding: 1px 10px;
+  }
+  
+  .brand_wrapper .owl-nav div {
+    background:#fa8072;
+    color:#FFF;
+    display: inline-block;
+    margin-left: 15px;
+    padding: 1px 10px;
+  }
+
+  .brand_list {padding-top: 40px;}
+  .brand_list .owl-nav {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }

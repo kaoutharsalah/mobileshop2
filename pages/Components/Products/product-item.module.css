@@ -1,0 +1,42 @@
+@media only screen and (min-width: 992px) and (max-width: 1280px) { 
+
+    .single_shop_product h2 {
+        font-size: 20px;
+        margin: 10px 0;
+    }
+    .single_shop_product {margin-bottom: 50px}
+    .product_option_shop {
+        margin-top: 15px;
+       
+    }
+    .product_carousel_price ins {
+        color: #5a88ca;
+        font-weight: 700;
+        margin-right: 5px;
+        text-decoration: none;
+      }
+     
+    .pagination > li > a, .pagination > li > span {
+      color: #5a88ca;
+    }
+    
+    .carousel_control_prev:hover, .carousel_control_next:hover {
+        background-color: gray;
+    }
+    .product_hover a.add_to_cart_link {top: -25%;}
+    .product_hover a.view_details_link { bottom: -25%;}
+    }
+    .button{
+      background: none repeat scroll 0 0 #5a88ca;
+      border: medium none;
+      color: #fff;
+      padding: 11px 20px;
+      
+    }
+    .add_to_cart_button {
+      background: none repeat scroll 0 0 #5a88ca;
+      border: medium none;
+      color: #fff;
+      padding: 5px 30px;
+      display: inline-block
+    }
