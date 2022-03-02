@@ -55,12 +55,25 @@ table.shop_table td.product_remove a {
   
   div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background-color: #222}
   
-  input[type="button"], button[type=button] {
+.input[type="button"] {
     background: none repeat scroll 0 0 #5a88ca;
     border: medium none;
     color: #fff;
     padding: 11px 20px;
     text-transform: uppercase;
+}
+.button {
+
+    background: none repeat scroll 0 0 #5a88ca;
+
+    border: medium none;
+
+    color: #fff;
+
+    padding: 11px 20px;
+
+    text-transform: uppercase;
+
 }
 .quantity {
     float: left;

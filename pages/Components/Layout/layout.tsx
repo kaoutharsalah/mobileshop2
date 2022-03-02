@@ -9,7 +9,7 @@ import Header from "../Header/header";
 
 export default function Layout({ children }: PropsWithChildren<any>) {
   return (
-    <body>
+    <body className={classes.body}>
       <div>
         <Header/>
         <Navbar />

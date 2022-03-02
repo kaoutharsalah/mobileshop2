@@ -35,7 +35,7 @@ export default function TopSaller(){
      
 
     return (
-      <div>
+      <div className="col-md-4">
       <div className={classes.product_widget_area}>
         <div className={classes.zigzag_bottom}></div>
         <div className="container">
@@ -48,7 +48,7 @@ export default function TopSaller(){
                   {topseller.map((top) => (
                     <div key={top.id}>
                        <a href="single-product.html">
-                         <img src="http://localhost:3000/img/" alt={top.imageName} className="product-thumb" />
+                         <img src={"/produts-img/Sony"+ top.imageName} alt={top.imageName} className="product-thumb" />
                         </a> 
                       <h2>
                         <a href="single-product.html">{top.name}</a>
