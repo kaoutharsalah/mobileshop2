@@ -5,7 +5,12 @@ import { useEffect } from 'react';
 import Product from './productItem';
 import Layout from '../Layout/layout';
 
-
+export function getCategoryId(){
+  if (typeof window !== 'undefined') {
+    var categoryId=localStorage.getItem('categoryId')
+  }
+  return categoryId
+}
 
 interface Product{
     id: number,
@@ -20,13 +25,14 @@ function Products(){
 
    const [data ,setData]=useState<Product[]>([]);
    useEffect(()=>{
-      axios.get('http://localhost:3000/products')
+  
+      axios.get(`http://localhost:3000/products-lists?id=${getCategoryId()}`)
       .then( ( response: AxiosResponse)=>{
         console.log(response.data);
         setData(response.data);
         }
       )
-   },[]);
+   },[getCategoryId()]);
 
 
     return (
@@ -39,23 +45,24 @@ function Products(){
              <div className="row">
                  <div className="col-md-12">
                      <div className={classes.product_bit_title } >
-                         <h2> Samsung </h2>
+                         <h2> {getCategoryId()} </h2>
                      </div>
                  </div>
              </div>
          </div>
         </div>
+        <div>
+        
         <div className={classes.single_product_area}>
          <div className={classes.zigzag_bottom}></div>
          <div className="container">
              <div className="row">
-             { data.map((prod) =>(
-                 <Product key={prod.id} 
-                  id = {prod.id}
-                  name = {prod.name}
-                  imageName = {prod.imageName}
-                  price = {prod.price}
-                  discountRate = {prod.discountRate}
+             { data.map((product) =>(
+                 <Product key={product.id} 
+                  id = {product.id}
+                  name = {product.name}
+                  imageName = {product.imageName}
+                  price = {product.price}
 
                 />
              ))}
@@ -63,25 +70,13 @@ function Products(){
              </div>           
              <div className="row">
                  <div className="col-md-12" >
-            
- <nav aria-label="Page navigation example">
-   <ul className="pagination justify-content-center">
-     <li className="page-item disabled">
-       <a className="page-link" href="#" >Previous</a>
-     </li>
-     <li className="page-item"><a className="page-link" href="#">1</a></li>
-     <li className="page-item"><a className="page-link" href="#">2</a></li>
-     <li className="page-item"><a className="page-link" href="#">3</a></li>
-     <li className="page-item">
-       <a className="page-link" href="#">Next</a>
-     </li>
-   </ul>
- </nav>
-                      
                  </div>
              </div>
          </div>
      </div>
+     </div>
+ 
+  
      </main>
      </Layout>
      </div>

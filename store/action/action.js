@@ -1,6 +1,6 @@
-import { GET_CATEGORIES } from '../type';
-import GetApiCategories from './axiosRequest';
-const Action = () => {
+import { GET_CATEGORIES } from '../Reduxtype';
+import GetApiCategories from './apiCategories';
+export const Action = () => {
   return function (dispatch) {
     return GetApiCategories()
       .then((res) => {
@@ -16,4 +16,16 @@ const Action = () => {
   };
 };
 
-export default Action;
+export const addToCart = () => {
+  return {
+    type: actionTypes.ADD_TO_CART,
+    payload: any
+    
+  };
+};
+export const removeFromCart = () => {
+  return {
+    type: actionTypes.REMOVE_FROM_CART,
+    payload: Number
+  };
+};

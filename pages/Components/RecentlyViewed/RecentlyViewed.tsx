@@ -9,7 +9,7 @@ function RecentlyViewed(){
                   <div className={classes.single_wid_product}>
                     <a href="single-product.html">
                       <img
-                        src="img/product-thumb-4.jpg"
+                        src="/img/product-thumb-4.jpg"
                         alt=""
                         className="product-thumb"
                       />
@@ -32,7 +32,7 @@ function RecentlyViewed(){
                   <div className={classes.single_wid_product}>
                     <a href="single-product.html">
                       <img
-                        src="img/product-thumb-1.jpg"
+                        src="/img/product-thumb-1.jpg"
                         alt=""
                         className="product-thumb"
                       />
@@ -55,7 +55,7 @@ function RecentlyViewed(){
                   <div className={classes.single_wid_product}>
                     <a href="single-product.html">
                       <img
-                        src="img/product-thumb-2.jpg"
+                        src="/img/product-thumb-2.jpg"
                         alt=""
                         className="product-thumb"
                       />

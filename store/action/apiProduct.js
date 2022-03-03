@@ -22,6 +22,6 @@ const GetApiProducts = () => {
   const headers = {
     'Content-Type': 'application/json',
   };
-  return apiProduct('http://localhost:3000/products-lists', 'GET', headers, {});
+  return apiProduct('http://localhost:3000/products-lists/q=10', 'GET', headers, {});
 };
 export default GetApiProducts;

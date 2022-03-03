@@ -1,5 +1,5 @@
 
-import { GET_PRODUCTS } from '../type';
+import { GET_PRODUCTS } from '../Reduxtype';
 
 import GetApiProducts from './apiProduct'
 const ProductAction = () => {

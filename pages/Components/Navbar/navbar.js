@@ -7,9 +7,15 @@ import { useSelector,  useDispatch } from "react-redux";
 import _app from "../../_app"
 
 
-import Action from "../../../store/action/action";
+import Action from "../../../store/action/Action";
 
- const Navbar = ({Props}) => {
+function Redirect(id){
+  console.log('id', id)
+ // e.preventDefault();
+  localStorage.setItem('categoryId',id)
+  //router.push({pathname: `/${id}`, query: { category: category }});
+};
+ const Navbar = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categoriesReducer.categories );
 
@@ -36,12 +42,14 @@ import Action from "../../../store/action/action";
              
               {categories?.map((category) => (
                 <li key={category.productListId}>
-                  <Link 
-                    href={"/shops/" + category.productListId}
-                   // activeClassName="active"
+              
+                  {console.log('category2', category.productListId)}
+                  <a onClick={() => Redirect(category['productListId'])}
+                    href={"Components/Products/products/" + category.productListId}
+             
                   >
                     {category.name}
-                  </Link>
+                  </a>
                   
                 </li>
               ))}

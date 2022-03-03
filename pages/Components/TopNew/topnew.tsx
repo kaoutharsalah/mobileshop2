@@ -55,12 +55,9 @@ function TopNew(){
                         <h2>
                           <a href="single-product.html">{top.name}</a>
                         </h2>
-                        <div className={classes.product_wid_rating}>
+                        <div className={classes.product_wid_rating} key={top.review}>
                           <i className="fa fa-star"></i>
-                          <i className="fa fa-star"></i>
-                          <i className="fa fa-star"></i>
-                          <i className="fa fa-star"></i>
-                          <i className="fa fa-star"></i>
+                       
                         </div>
                         <div className={classes.product_wid_price}>
                           <ins>{top.price}</ins>

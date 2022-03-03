@@ -2,8 +2,9 @@ import React from 'react';
 import classes from './cart.module.css';
 import CartItem from './cartItem';
 
-
 export default function Cart(){
+
+
  return (
      <div>
        <div className={classes.single_product_area}>

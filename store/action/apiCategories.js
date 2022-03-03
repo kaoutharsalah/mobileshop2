@@ -23,5 +23,6 @@ const GetApiCategories = () => {
     'Content-Type': 'application/json',
   };
   return axiosRequest('http://localhost:3000/categories', 'GET', headers, {});
+ 
 };
 export default GetApiCategories;
