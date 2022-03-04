@@ -1,12 +1,14 @@
-import * as actionTypes from "../action/CartAction"
+export const ADD_TO_CART ='ADD_TO_CART';
+export const REMOVE_FROM_CART ='REMOVE_FROM_CART'
 const INITIAL_STATE = {
-
-    cart: []
+    items:[],
+    totalQuantity:0,
+    totalAmount: 0,
   };
   
   const cartReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-      case actionTypes.ADD_TO_CART:
+      case ADD_TO_CART:
         const newItem = action.payload;
         existingItem = state.items.find(item => item.id === newItem.id );
         state.totalQuantity++;
@@ -26,7 +28,7 @@ const INITIAL_STATE = {
         }
         return state;
     
-      case actionTypes.REMOVE_FROM_CART:
+      case REMOVE_FROM_CART:
         const id = action.payload;
           existingItem = state.items.find(item => item.id === id);
           

@@ -2,12 +2,11 @@ import Link from 'next/link';
 
 import classes from './cartButton.module.css';
 
-
 export default function cartButton(){
     
     return(
         <div className="col-sm-4">
-        <Link href='/Cart'>
+        <Link href='/Components/Cart/cart'>
         <button className={classes.item}>
          
            Cart :  

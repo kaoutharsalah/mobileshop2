@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import Product from './productItem';
 import Layout from '../Layout/layout';
+import { connect } from 'react-redux'
+import { useRouter } from "next/router";
+
 
 export function getCategoryId(){
   if (typeof window !== 'undefined') {
@@ -24,21 +27,24 @@ interface Product{
 function Products(){
 
    const [data ,setData]=useState<Product[]>([]);
+   const router = useRouter();
+    let id = router.query.slug;
+   
    useEffect(()=>{
-  
-      axios.get(`http://localhost:3000/products-lists?id=${getCategoryId()}`)
+  /*`http://localhost:3000/products-lists?id=${id}`*/
+      axios.get(`http://localhost:3000/products-lists?id=${id}`)
       .then( ( response: AxiosResponse)=>{
         console.log(response.data);
         setData(response.data);
         }
       )
-   },[getCategoryId()]);
+   },[id]);
 
 
     return (
         <div>
           <Layout>
-              
+              {console.log('id',id)}
         <main>
         <div className={classes.product_big_title_area}>
          <div className="container">
@@ -63,6 +69,7 @@ function Products(){
                   name = {product.name}
                   imageName = {product.imageName}
                   price = {product.price}
+                  discountRate= {product.discountRate}
 
                 />
              ))}

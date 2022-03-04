@@ -1,6 +1,6 @@
 import { GET_CATEGORIES } from '../Reduxtype';
 import GetApiCategories from './apiCategories';
-export const Action = () => {
+export function Action(){
   return function (dispatch) {
     return GetApiCategories()
       .then((res) => {
@@ -16,14 +16,14 @@ export const Action = () => {
   };
 };
 
-export const addToCart = () => {
+export function addToCart(){
   return {
     type: actionTypes.ADD_TO_CART,
     payload: any
     
   };
 };
-export const removeFromCart = () => {
+export function removeFromCart(){
   return {
     type: actionTypes.REMOVE_FROM_CART,
     payload: Number

@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/Components/Cart/cart.js", "pages/Components/Footer/footer.js", "pages/Components/Header/header.js", "pages/Components/Layout/layout.js", "pages/Components/Navbar/navbar.tsx", "pages/Components/NavLink/NavLink.js"  ],
+, "pages/Components/Cart/cart.js", "pages/Components/Footer/footer.js", "pages/Components/Header/header.js", "pages/Components/Layout/layout.js", "pages/Components/Navbar/navbar.tsx", "pages/Components/NavLink/NavLink.js", "monstore/reducers/index.js"  ],
   "exclude": [
     "node_modules"
   ]

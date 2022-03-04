@@ -8,10 +8,11 @@ import classes from './product-item.module.css';
      
     return (
         <div>
+            {console.log('props', props )}
          <div className="col-md-3 col-sm-6">
                      <div className={classes.single_shop_product}>
                          <div className="product-upper">
-                           <img src="http://localhost:3000/img/"  alt={imageName}/>
+                           <img src={"/products-img/" + imageName} alt={imageName}/>
                          </div>
                          <h2>  <a >{name} </a></h2>
                          <div className={classes.product_carousel_price}>

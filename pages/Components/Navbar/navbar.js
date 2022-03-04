@@ -6,9 +6,8 @@ import { useSelector,  useDispatch } from "react-redux";
 
 import _app from "../../_app"
 
-
-import Action from "../../../store/action/Action";
-
+import  {Action} from "../../../store/action/Action";
+import { useRouter } from "next/router";
 function Redirect(id){
   console.log('id', id)
  // e.preventDefault();
@@ -26,7 +25,7 @@ function Redirect(id){
     dispatch(Action());
   }, [dispatch]);
 
-
+  const router = useRouter();
 
   return (
 
@@ -37,19 +36,19 @@ function Redirect(id){
           <div className="navbar">
             <ul className="nav navbar-nav navbar-expand">
               <li key="home">
-                <Link href="/index">Home</Link>
+                <Link href="/">Home</Link>
               </li>
              
               {categories?.map((category) => (
                 <li key={category.productListId}>
               
                   {console.log('category2', category.productListId)}
-                  <a onClick={() => Redirect(category['productListId'])}
-                    href={"Components/Products/products/" + category.productListId}
+                  <Link onClick={() => Redirect(category['productListId'])}
+                    href={"Components/Products" + category.productListId}
              
                   >
                     {category.name}
-                  </a>
+                  </Link>
                   
                 </li>
               ))}

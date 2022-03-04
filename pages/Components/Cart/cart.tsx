@@ -2,9 +2,8 @@ import React from 'react';
 import classes from './cart.module.css';
 import CartItem from './cartItem';
 
-export default function Cart(){
-
-
+const  Cart= () => {
+ 
  return (
      <div>
        <div className={classes.single_product_area}>
@@ -79,3 +78,6 @@ export default function Cart(){
      </div>
  )
 }
+
+
+export default Cart;
