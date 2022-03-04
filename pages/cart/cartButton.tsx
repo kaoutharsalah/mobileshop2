@@ -6,7 +6,7 @@ export default function cartButton(){
     
     return(
         <div className="col-sm-4">
-        <Link href='/Components/Cart/cart'>
+        <Link href='/cart/cart'>
         <button className={classes.item}>
          
            Cart :  

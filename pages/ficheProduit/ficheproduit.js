@@ -1,7 +1,7 @@
-import Header from "../Header/header"
-import Navbar from "../Navbar/navbar"
-import Footer from "../Footer/footer"
-import RecentlyViewed from "../RecentlyViewed/RecentlyViewed";
+import Header from "../Components/Header/header"
+import Navbar from "../Components/Navbar/navbar"
+import Footer from "../Components/Footer/footer"
+import RecentlyViewed from "../Components/RecentlyViewed/RecentlyViewed";
 function Product() {
     return (
         <div><>

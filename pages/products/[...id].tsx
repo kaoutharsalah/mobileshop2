@@ -3,7 +3,7 @@ import axios , {AxiosResponse} from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Product from './productItem';
-import Layout from '../Layout/layout';
+import Layout from '../Components/Layout/layout';
 import { connect } from 'react-redux'
 import { useRouter } from "next/router";
 
@@ -24,20 +24,28 @@ interface Product{
     review: number
 
 }
-function Products(){
-
-   const [data ,setData]=useState<Product[]>([]);
-   const router = useRouter();
-    let id = router.query.slug;
-   
-   useEffect(()=>{
-  /*`http://localhost:3000/products-lists?id=${id}`*/
-      axios.get(`http://localhost:3000/products-lists?id=${id}`)
-      .then( ( response: AxiosResponse)=>{
-        console.log(response.data);
-        setData(response.data);
+export async function getStaticProps() {
+    const res = await fetch(`http://localhost:3000/products-lists?id=${id}`);
+    const myproduct = await res.json();
+    return {
+        props: {
+            myproduct
         }
-      )
+    }
+}
+
+function Products( {props}){
+
+
+ 
+  
+   const [myproduct ,setproduct]=useState<Product[]>([]);
+   const router = useRouter();
+    let id = router.query.id;
+    console.log('router',router)
+  useEffect(()=>{
+
+    getStaticProps()
    },[id]);
 
 
@@ -63,13 +71,14 @@ function Products(){
          <div className={classes.zigzag_bottom}></div>
          <div className="container">
              <div className="row">
-             { data.map((product) =>(
+                
+             { myproduct.map((product) =>(
                  <Product key={product.id} 
-                  id = {product.id}
-                  name = {product.name}
-                  imageName = {product.imageName}
-                  price = {product.price}
-                  discountRate= {product.discountRate}
+                  id = {product[0].id}
+                  name = {product[0].name}
+                  imageName = {product[0].imageName}
+                  price = {product[0].price}
+                  discountRate= {product[0].discountRate}
 
                 />
              ))}

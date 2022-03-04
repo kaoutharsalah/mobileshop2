@@ -44,7 +44,7 @@ function Redirect(id){
               
                   {console.log('category2', category.productListId)}
                   <Link onClick={() => Redirect(category['productListId'])}
-                    href={"Components/Products" + category.productListId}
+                    href={"/products/" + category.productListId}
              
                   >
                     {category.name}
