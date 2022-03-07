@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./header.module.css";
 import Link from "next/link";
-import CartButton from '../../cart/cartButton';
+import CartButton from '../../pages/cart/cartButton';
 
 export default function Header() {
   return (

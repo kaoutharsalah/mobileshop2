@@ -1,15 +1,16 @@
 import { useEffect } from "react";
 import classes from "./Navbar.module.css";
+import { useState } from 'react';
 
 import Link from 'next/link'
 import { useSelector,  useDispatch } from "react-redux";
 
-import _app from "../../_app"
+import _app from "../../pages/_app"
 
-import  {Action} from "../../../store/action/Action";
+import  {Action} from "../../store/action/Action";
 import { useRouter } from "next/router";
 function Redirect(id){
-  console.log('id', id)
+  //console.log('id', id)
  // e.preventDefault();
   localStorage.setItem('categoryId',id)
   //router.push({pathname: `/${id}`, query: { category: category }});
@@ -42,9 +43,8 @@ function Redirect(id){
               {categories?.map((category) => (
                 <li key={category.productListId}>
               
-                  {console.log('category2', category.productListId)}
                   <Link onClick={() => Redirect(category['productListId'])}
-                    href={"/products/" + category.productListId}
+                    href={"/products-lists/" + category.productListId}
              
                   >
                     {category.name}

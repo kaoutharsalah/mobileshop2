@@ -30,7 +30,7 @@ function TopNew(){
     
     axios.get('http://localhost:3000/top-new-products')
     .then((response: AxiosResponse) => {
-        console.log(response.data);
+        //console.log(response.data);
         setTopNewList( response.data );
     });
 }, []);
@@ -50,7 +50,15 @@ function TopNew(){
                     {topnew.map((top) => (
                       <div key={top.id}>
                          <a href="single-product.html">
-                           <img src={"/produts-img/"+ top.imageName} alt={top.imageName} className="product-thumb" />
+                           <img
+                          src={
+                            "/produts-img/" +
+                            top.imageName.split("-")[0] +
+                            "/" +
+                            top.imageName
+                          }
+                          alt={top.imageName}
+                          className="product-thumb" />
                           </a> 
                         <h2>
                           <a href="single-product.html">{top.name}</a>

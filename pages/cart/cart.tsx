@@ -1,9 +1,15 @@
 import React from 'react';
 import classes from './cart.module.css';
-import CartItem from './cartItem';
+import CartItems from './cartItems';
+import { useSelector, useDispatch } from "react-redux";
 
-const  Cart= () => {
- 
+import { connect } from "react-redux";
+
+
+const Cart = ({Cart }) => {
+
+   // const dispatch = useDispatch();
+  // const cartItems = useSelector((state) => state.cart.items);
  return (
      <div>
        <div className={classes.single_product_area}>
@@ -13,14 +19,14 @@ const  Cart= () => {
                 <div className="col-md-12">
                     <div className="product-content-right">
                         <div className="woocommerce">         
-                            <CartItem/>
+                            <CartItems/>
                             <div className={classes.cart_collaterals}>
                             <div className={classes.cross_sells}>
                                 <h2>You may be interested in...</h2>
                                 <ul className={classes.products}>
                                     <li className={classes.product}>
                                         <a href="single-product.html">
-                                            <img width="225" height="225" alt="T_4_front" className="attachment-shop_catalog wp-post-image" src="img/product-2.jpg"/>
+                                            <img width="225" height="225" alt="T_4_front" className="attachment-shop_catalog wp-post-image" src="/img/product-2.jpg"/>
                                             <h3>Ship Your Idea</h3>
                                             <span className="price"><span className="amount">20.00 €</span></span>
                                         </a>
@@ -30,7 +36,7 @@ const  Cart= () => {
 
                                     <li className={classes.product}>
                                         <a href="single-product.html">
-                                            <img width="225" height="225" alt="T_4_front" className="attachment-shop_catalog wp-post-image" src="img/product-4.jpg"/>
+                                            <img width="225" height="225" alt="T_4_front" className="attachment-shop_catalog wp-post-image" src="/img/product-4.jpg"/>
                                             <h3>Ship Your Idea</h3>
                                             <span className="price"><span className="amount">20.00 €</span></span>
                                         </a>
@@ -78,6 +84,9 @@ const  Cart= () => {
      </div>
  )
 }
-
-
-export default Cart;
+const mapStateToProps =(state) =>{
+    return {
+        cart: state.cartReducer.cart,
+    };
+  }
+export default connect( mapStateToProps)(Cart);

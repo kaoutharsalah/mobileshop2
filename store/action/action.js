@@ -1,5 +1,6 @@
-import { GET_CATEGORIES } from '../Reduxtype';
+import { GET_CATEGORIES, ADD_TO_CART,REMOVE_FROM_CART } from '../Reduxtype';
 import GetApiCategories from './apiCategories';
+
 export function Action(){
   return function (dispatch) {
     return GetApiCategories()
@@ -16,16 +17,5 @@ export function Action(){
   };
 };
 
-export function addToCart(){
-  return {
-    type: actionTypes.ADD_TO_CART,
-    payload: any
-    
-  };
-};
-export function removeFromCart(){
-  return {
-    type: actionTypes.REMOVE_FROM_CART,
-    payload: Number
-  };
-};
+
+
