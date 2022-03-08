@@ -9,16 +9,20 @@ import _app from "../../pages/_app"
 
 import  {Action} from "../../store/action/Action";
 import { useRouter } from "next/router";
-function Redirect(id){
+
+function catgname(e,name,productListId,router){
   //console.log('id', id)
- // e.preventDefault();
-  localStorage.setItem('categoryId',id)
-  //router.push({pathname: `/${id}`, query: { category: category }});
+ 
+ e.preventDefault();
+ console.log('name',name)
+  localStorage.setItem('categoryName',name)
+ 
+  router.push({pathname: "/products-lists/"+productListId});
 };
  const Navbar = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categoriesReducer.categories );
-
+  const router = useRouter();
  
 
   useEffect(() => {
@@ -26,8 +30,7 @@ function Redirect(id){
     dispatch(Action());
   }, [dispatch]);
 
-  const router = useRouter();
-
+ 
   return (
 
       
@@ -43,12 +46,14 @@ function Redirect(id){
               {categories?.map((category) => (
                 <li key={category.productListId}>
               
-                  <Link onClick={() => Redirect(category['productListId'])}
+                  <Link
                     href={"/products-lists/" + category.productListId}
              
                   >
-                    {category.name}
+                     <a onClick={(e) =>  catgname(e,category.name,category.productListId,router)}>{category.name}</a>
+                 
                   </Link>
+                 
                   
                 </li>
               ))}

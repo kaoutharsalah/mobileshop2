@@ -7,11 +7,12 @@ import Layout from "../../components/Layout/layout"
 import { connect } from "react-redux";
 import { useRouter } from "next/router";
 import fetch from "node-fetch";
-export function getCategoryId() {
+export function getCategoryName() {
   if (typeof window !== "undefined") {
-    var categoryId = localStorage.getItem("categoryId");
+    var categoryname = localStorage.getItem("categoryName");
   }
-  return categoryId;
+  
+  return categoryname;
 }
 export async function getStaticPaths() {
   const res = await fetch(`http://localhost:3000/products-lists`);
@@ -53,13 +54,13 @@ function Products({ product }) {
               <div className="row">
                 <div className="col-md-12">
                   <div className={classes.product_bit_title}>
-                    <h2> {getCategoryId()} </h2>
+                    <h2> {getCategoryName()} </h2>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div>
+        
             <div className={classes.single_product_area}>
               <div className={classes.zigzag_bottom}></div>
               <div className="container">
@@ -80,17 +81,13 @@ function Products({ product }) {
                 </div>
               </div>
             </div>
-          </div>
+          
         </main>
       </Layout>
     </div>
   );
 }
-const mapStateToProps =(state) =>{
-  return {
-    products: state.cartReducer.products,
-  };
-}
 
-export default connect( mapStateToProps)(Products);
+
+export default Products;
 

@@ -1,8 +1,66 @@
-import Header from "../Header/header"
-import Navbar from "../Navbar/navbar"
-import Footer from "../Footer/footer"
-import RecentlyViewed from "../RecentlyViewed/RecentlyViewed";
+import Header from "../../components/Header/header"
+import Navbar from "../../components/Navbar/navbar"
+import Footer from "../../components/Footer/footer"
+import RecentlyViewed from "../../components/RecentlyViewed/RecentlyViewed";
+import { useEffect } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import {selectedProduct, removeSelectedProduct} from "../../store/action/productAction";
+import {ProductAction} from "../../store/action/productAction";
+/*export async function getStaticPaths() {
+    const res = await fetch(`http://localhost:3000/products/`);
+    const products = await res.json();
+    //console.log('productslists', productslists)
+    const paths = products.map((product) => `/products/${product.id}`);
+    return { paths, fallback: false };
+  }
+  export async function getStaticProps({ params }) {
+    const res = await fetch(`http://localhost:3000/products/${params.id}`);
+    const data = await res.json();
+    const dispatch = useDispatch();
+    dispatch(selectedProduct(data));
+    return { props: { data } };
+  }*/
+
+ 
+
+
+
 function Product() {
+    const dispatch = useDispatch();
+    const products = useSelector((state) => state.productsReducer.products);
+    const router = useRouter();
+    const  productId  = router.query.id;
+    useEffect(() => {
+
+        dispatch(ProductAction(productId));
+      }, [dispatch, products]);
+      console.log("product",products)
+    //const router = useRouter();
+   
+    
+    //let product = useSelector((state) => state.product);
+    const {id , name, imageName, price, discountRate ,description} =  products;
+
+   // const dispatch = useDispatch();
+   /*const fetchProductDetail = async (id) => {
+     const response = await axios
+       .get(`http://localhost:3000/products/${id}`)
+       .catch((err) => {
+         console.log("Err: ", err);
+       });
+     dispatch(selectedProduct(response.data));
+   };*/
+ 
+   /*useEffect(() => {
+ 
+     if (productId && productId !== "") fetchProductDetail(productId);
+     return () => {
+       dispatch(removeSelectedProduct());
+     };
+   }, [productId]);*/
     return (
         <div><>
            
@@ -35,9 +93,9 @@ function Product() {
                                 <div className="col-md-8">
                                     <div className="product-content-right">
                                         <div className="product-breadcroumb">
-                                            <a href="">Home</a>
+                                            <Link href="/">Home</Link>
                                             <a href="">Category Name</a>
-                                            <a href="">Sony Smart TV - 2015</a>
+                                            <a href="">{products && products[0] && products[0].name}</a>
                                         </div>
                                         <div className="row">
                                             <div className="col-sm-6">
@@ -54,9 +112,9 @@ function Product() {
                                             </div>
                                             <div className="col-sm-6">
                                                 <div className="product-inner">
-                                                    <h2 className="product-name">Sony Smart TV - 2015</h2>
+                                                    <h2 className="product-name">{name}</h2>
                                                     <div className="product-inner-price">
-                                                        <ins>$700.00</ins> <del>$100.00</del>
+                                                        <ins>${products && products[0] && products[0].price}</ins> <del>${products && products[0] && products[0].price-(products && products[0] && products[0].discountRate/100)}</del>
                                                     </div>
                                                     <form action="" className="cart">
                                                         <div className="quantity">
@@ -78,17 +136,7 @@ function Product() {
                                                     <div className="product-inner-category">
                                                         <h2>Product Description</h2>
                                                         <p>
-                                                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                            elit. Nam tristique, diam in consequat iaculis, est
-                                                            purus iaculis mauris, imperdiet facilisis ante ligula
-                                                            at nulla. Quisque volutpat nulla risus, id maximus ex
-                                                            aliquet ut. Suspendisse potenti. Nulla varius lectus
-                                                            id turpis dignissim porta. Quisque magna arcu, blandit
-                                                            quis felis vehicula, feugiat gravida diam. Nullam nec
-                                                            turpis ligula. Aliquam quis blandit elit, ac sodales
-                                                            nisl. Aliquam eget dolor eget elit malesuada aliquet.
-                                                            In varius lorem lorem, semper bibendum lectus lobortis
-                                                            ac.
+                                                        {products && products[0] && products[0].description}
                                                         </p>
                                                     </div>
                                                 </div>

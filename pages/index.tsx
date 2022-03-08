@@ -1,5 +1,5 @@
 
-import DemoCarousel from "../components/DempCarousel/demoCarousel";
+import DemoCarousel from "../components/DemoCarousel/demoCarousel";
 import Layout from "../components/Layout/layout";
 import Marque from "../components/Marque/marque";
 import RecentlyViewed from "../components/RecentlyViewed/RecentlyViewed";
@@ -19,8 +19,8 @@ export default function Home(){
         <DemoCarousel></DemoCarousel>
         <Marque></Marque>
         <div className={classes.product_widget_area}>
-      <div className={classes.zigzag_bottom}></div>
-      <div className={classes.container}>
+        <div className={classes.zigzag_bottom}></div>
+        <div className={classes.container}>
         <div className="row">
        <TopSaller/> 
        

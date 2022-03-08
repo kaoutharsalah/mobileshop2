@@ -6,16 +6,15 @@ function Product(props: any) {
   const { id, name, imageName, price, discountRate } = props;
 
   return (
-    <div>
-      {console.log("props", props)}
+   
+     
       <div className="col-md-3 col-sm-6">
         <div className={classes.single_shop_product}>
           <div className="product-upper">
             <img
               src={"/produts-img/" + imageName.split("-")[0] + "/" + imageName}
               alt={imageName}
-              className="product-thumb"
-            />
+                          />
           </div>
           <h2>
             {" "}
@@ -30,7 +29,7 @@ function Product(props: any) {
           </div>
         </div>
       </div>
-    </div>
+   
   );
 }
 export default Product;
