@@ -16,24 +16,6 @@ export function Action() {
   };
 };
 
-export function addToCart(value) {
-  return {
-    type: ADD_TO_CART,
-    payload: value,
 
-  };
-};
-export function removeFromCart(value) {
-  return {
-    type: REMOVE_FROM_CART,
-    payload: value,
-  };
-};
-export function getCart(value) {
-  return {
-    type: GET_CART,
-    payload: value,
-  };
-};
 
 

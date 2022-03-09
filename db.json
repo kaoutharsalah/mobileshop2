@@ -4208,74 +4208,257 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, diam in consequat iaculis, est purus iaculis mauris, imperdiet facilisis ante ligula at nulla. Quisque volutpat nulla risus, id maximus ex aliquet ut. Suspendisse potenti. Nulla varius lectus id turpis dignissim porta."
     }
   ],
-  "top-sellers-products" : [
+  "top-sellers-products": [
     {
-    "id": 5016,
-    "name": "sony xperia xa1 2017",
-    "imageName": "sony-xperia-xa1-2017.jpg",
-    "price": 592,
-    "discountRate": 15,
-    "review": 2
-  },
+      "id": 5016,
+      "name": "sony xperia xa1 2017",
+      "imageName": "sony-xperia-xa1-2017.jpg",
+      "price": 592,
+      "discountRate": 15,
+      "review": 2
+    },
     {
-    "id": 3002,
-    "name": "lg g pad iii 8.0 fhd",
-    "imageName": "lg-g-pad-iii-8.0-fhd.jpg",
-    "price": 585,
-    "discountRate": 26,
-    "review": 3
-  },
+      "id": 3002,
+      "name": "lg g pad iii 8.0 fhd",
+      "imageName": "lg-g-pad-iii-8.0-fhd.jpg",
+      "price": 585,
+      "discountRate": 26,
+      "review": 3
+    },
     {
-    "id": 3026,
-    "name": "lg k8 2017",
-    "imageName": "lg-k8-2017.jpg",
-    "price": 272,
-    "discountRate": 17,
-    "review": 2
-  }
+      "id": 3026,
+      "name": "lg k8 2017",
+      "imageName": "lg-k8-2017.jpg",
+      "price": 272,
+      "discountRate": 17,
+      "review": 2
+    }
   ],
-  "top-new-products" : [
-   {
-    "id": 2035,
-    "name": "samsung galaxy j2 prime 2016",
-    "imageName": "samsung-galaxy-j2-prime-2016.jpg",
-    "price": 230,
-    "discountRate": 13,
-    "review": 5
-  },
+  "top-new-products": [
     {
-    "id": 4004,
-    "name": "huawei mate 20 lite r1.jpg",
-    "imageName": "huawei-mate-20-lite-r1.jpg",
-    "price": 382,
-    "discountRate": 8,
-    "review": 1
-  },
+      "id": 2035,
+      "name": "samsung galaxy j2 prime 2016",
+      "imageName": "samsung-galaxy-j2-prime-2016.jpg",
+      "price": 230,
+      "discountRate": 13,
+      "review": 5
+    },
     {
-    "id": 3049,
-    "name": "lg x power2",
-    "imageName": "lg-x-power2.jpg",
-    "price": 351,
-    "discountRate": 28,
-    "review": 5
-  }
-  
-  
-  ],    
-  
+      "id": 4004,
+      "name": "huawei mate 20 lite r1.jpg",
+      "imageName": "huawei-mate-20-lite-r1.jpg",
+      "price": 382,
+      "discountRate": 8,
+      "review": 1
+    },
+    {
+      "id": 3049,
+      "name": "lg x power2",
+      "imageName": "lg-x-power2.jpg",
+      "price": 351,
+      "discountRate": 28,
+      "review": 5
+    }
+  ],
   "carts": [
     {
       "id": "e364b282-6460-4665-bfc8-1c5bb68f18ff",
-      "total": 123.12,
-      "subTotal": 123.12,
-      "tax": 14.7,
+      "total": 667.51,
+      "subTotal": 0,
+      "tax": 20,
+      "totalquantity": 2,
       "items": [
         {
-          "id": 5029,
-          "name": "sony xperia xz3",
-          "imageName": "sony-xperia-xz3-.jpg",
-          "price": 725,
-          "qty": 3
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 2,
+          "totalPrice": 568.6200000000001
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 1,
+          "totalPrice": 284.31
+        },
+        {
+          "id": 1003,
+          "name": "apple ipad air 2 new",
+          "imageName": "apple-ipad-air-2-new.jpg",
+          "price": 383.2,
+          "quantity": 1,
+          "totalPrice": 383.2
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 2,
+          "totalPrice": 568.62
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 1,
+          "totalPrice": 284.31
+        },
+        {
+          "id": 1003,
+          "name": "apple ipad air 2 new",
+          "imageName": "apple-ipad-air-2-new.jpg",
+          "price": 383.2,
+          "quantity": 1,
+          "totalPrice": 383.2
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 2,
+          "totalPrice": 568.62
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 1,
+          "totalPrice": 284.31
+        },
+        {
+          "id": 1003,
+          "name": "apple ipad air 2 new",
+          "imageName": "apple-ipad-air-2-new.jpg",
+          "price": 383.2,
+          "quantity": 1,
+          "totalPrice": 383.2
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 2,
+          "totalPrice": 568.62
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 1,
+          "totalPrice": 284.31
+        },
+        {
+          "id": 1003,
+          "name": "apple ipad air 2 new",
+          "imageName": "apple-ipad-air-2-new.jpg",
+          "price": 383.2,
+          "quantity": 1,
+          "totalPrice": 383.2
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 3,
+          "totalPrice": 852.9300000000001
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 1,
+          "totalPrice": 284.31
+        },
+        {
+          "id": 1003,
+          "name": "apple ipad air 2 new",
+          "imageName": "apple-ipad-air-2-new.jpg",
+          "price": 383.2,
+          "quantity": 1,
+          "totalPrice": 383.2
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 2,
+          "totalPrice": 568.62
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 1,
+          "totalPrice": 284.31
+        },
+        {
+          "id": 1003,
+          "name": "apple ipad air 2 new",
+          "imageName": "apple-ipad-air-2-new.jpg",
+          "price": 383.2,
+          "quantity": 1,
+          "totalPrice": 383.2
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 2,
+          "totalPrice": 568.62
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 1,
+          "totalPrice": 284.31
+        },
+        {
+          "id": 1003,
+          "name": "apple ipad air 2 new",
+          "imageName": "apple-ipad-air-2-new.jpg",
+          "price": 383.2,
+          "quantity": 1,
+          "totalPrice": 383.2
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 2,
+          "totalPrice": 568.62
+        },
+        {
+          "id": 1002,
+          "name": "apple ipad 97 2018",
+          "imageName": "apple-ipad-97-2018.jpg",
+          "price": 284.31,
+          "quantity": 1,
+          "totalPrice": 284.31
+        },
+        {
+          "id": 1003,
+          "name": "apple ipad air 2 new",
+          "imageName": "apple-ipad-air-2-new.jpg",
+          "price": 383.2,
+          "quantity": 1,
+          "totalPrice": 383.2
         }
       ]
     }

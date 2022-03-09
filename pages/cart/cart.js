@@ -10,23 +10,14 @@ import { Action } from '../../store/action/Action';
 
 import { GET_CART } from '../../store/action/actionType';
 
+
 const Cart = () => {
-  const [data, setdata] = useState([]);
-  const dispatch = useDispatch();
-  axios.get('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff')
-    .then((cart) => {
-      console.log(cart.data.items);
-      setdata(cart.data.items);
-      dispatch({
-        type: GET_CART,
-        payload: cart.data.items,
-      })
-    });
-
-
-
-  const cartItems = useSelector((state) => state.cart.items);
-  console.log(cartItems);
+  const cartAmount = useSelector((state)=> state.Cart.totalAmount);
+  const taxe = cartAmount*0.2;
+  //console.log(taxe)
+  const totale= cartAmount+taxe;
+  const cartItems = useSelector((state) => state.Cart.items);
+  //console.log(cartItems)
   return (
     <div>
       <Layout>
@@ -37,7 +28,7 @@ const Cart = () => {
               <div className="col-md-12">
                 <div className="product-content-right">
                   <div className="woocommerce">
-                    <CartItems items={data} />
+                   <CartItems items={cartItems}/>
                     <div className={classes.cart_collaterals}>
                       <div className={classes.cross_sells}>
                         <h2>You may be interested in...</h2>
@@ -72,17 +63,17 @@ const Cart = () => {
                           <tbody>
                             <tr className="cart-subtotal">
                               <th>Cart Subtotal</th>
-                              <td><span className="amount">15.00 €</span></td>
+                              <td><span className="amount">{cartAmount}  €</span></td>
                             </tr>
 
                             <tr className={classes.shipping_calculator} >
                               <th>Taxe (20%)</th>
-                              <td>20.23 €</td>
+                              <td>{taxe}  €</td>
                             </tr>
 
                             <tr className="order-total">
                               <th>Order Total</th>
-                              <td><strong><span className="amount">15.00 €</span></strong> </td>
+                              <td><strong><span className="amount">{totale}€</span></strong>{" "} </td>
                             </tr>
                           </tbody>
                         </table>
@@ -103,10 +94,5 @@ const Cart = () => {
 
   )
 }
-/*const mapStateToProps = (state) => {
-  return {
-    cart: state.cartReducer.cart,
-  };
-}
-export default connect(mapStateToProps)(Cart)*/
+
 export default Cart;

@@ -1,28 +1,15 @@
-import Header from "../../components/Header/header"
-import Navbar from "../../components/Navbar/navbar"
-import Footer from "../../components/Footer/footer"
-import RecentlyViewed from "../../components/RecentlyViewed/RecentlyViewed";
+import Header from "../../../components/Header/header"
+import Navbar from "../../../components/Navbar/navbar"
+import Footer from "../../../components/Footer/footer"
+import RecentlyViewed from "../../../components/RecentlyViewed/RecentlyViewed";
 import { useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import {selectedProduct, removeSelectedProduct} from "../../store/action/productAction";
-import {ProductAction} from "../../store/action/productAction";
-/*export async function getStaticPaths() {
-    const res = await fetch(`http://localhost:3000/products/`);
-    const products = await res.json();
-    //console.log('productslists', productslists)
-    const paths = products.map((product) => `/products/${product.id}`);
-    return { paths, fallback: false };
-  }
-  export async function getStaticProps({ params }) {
-    const res = await fetch(`http://localhost:3000/products/${params.id}`);
-    const data = await res.json();
-    const dispatch = useDispatch();
-    dispatch(selectedProduct(data));
-    return { props: { data } };
-  }*/
+import {selectedProduct, removeSelectedProduct} from "../../../store/action/productAction";
+import {ProductAction} from "../../../store/action/productAction";
+
 
  
 
@@ -95,13 +82,13 @@ function Product() {
                                         <div className="product-breadcroumb">
                                             <Link href="/">Home</Link>
                                             <a href="">Category Name</a>
-                                            <a href="">{products && products[0] && products[0].name}</a>
+                                            <a href="" >{products && products[0] && products[0].name}</a>
                                         </div>
                                         <div className="row">
                                             <div className="col-sm-6">
                                                 <div className="product-images">
                                                     <div className="product-main-img">
-                                                        <img src="/img/product-2.jpg" alt="" />
+                                                        <img src={"/produts-img/" + (products && products[0] && products[0].imageName.split("-")[0]) + "/" + (products && products[0] && products[0].imageName)} alt={products && products[0] && products[0].imageName} />
                                                     </div>
                                                     <div className="product-gallery">
                                                         <img src="/img/product-thumb-1.jpg" alt="" />

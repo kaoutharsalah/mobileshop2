@@ -1,5 +1,5 @@
 import classes from "./products.module.css";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import Product from "./productItem";
@@ -36,6 +36,7 @@ interface Product {
   price: number;
   discountRate: number;
   review: number;
+  priceafterdiscount : number;
 }
 
 function Products({ product }) {
@@ -73,6 +74,7 @@ function Products({ product }) {
                       imageName={product.imageName}
                       price={product.price}
                       discountRate={product.discountRate}
+                      priceafterdiscount ={product.price-(product.price*(product.discountRate*0.01))}
                     />
                   ))}
                 </div>

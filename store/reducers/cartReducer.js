@@ -1,38 +1,84 @@
-export const ADD_TO_CART = 'ADD_TO_CART';
-export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
-import { GET_CART } from '../action/actionType';
-const INITIAL_STATE = {
-  items: [],
-  totalQuantity: 0,
-  totalAmount: 0,
+import { ActionType } from "../action/actionType";
+
+const initialState = {
+    id:"",
+    items:[],
+    totalQuantity:0,
+    totalAmount: 0,
+    tax: 0,
+    cartstate :true,
+   
 };
+const Cartreducer=(state = initialState , action )=>{
+  let existingItem ;
+  switch (action.type){
+      case ActionType.ADDITEMTOCART:
+        const newItem = action.payload;
+        existingItem = state.items.find(item => item.id === newItem.id );
+        if (!existingItem){
+          state.items.push({
+              id:newItem.id,
+              name: newItem.name,
+              imageName: newItem.imageName,
+              price: newItem.price, 
+              quantity:newItem.quantity,
+              totalPrice: newItem.price,        
+          });
+        }
+        // else {
+        // existingItem.quantity++;
+        // existingItem.totalPrice = (existingItem.totalPrice + newItem.price);  
+        // }
+        state.totalQuantity++;
+        state.totalAmount=state.totalAmount+newItem.price;
+        state.cartstate=!state.cartstate;
+        return state;
+        // return {
+        //   ...state,
+        //   items : action.payload.items,
+        //   totalQuantity: action.payload.total,
+        //   totalAmount : action.payload.totalquantity,
 
-const cartReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case ADD_TO_CART:
-      return {
-        ...state,
-        items: action.paylod.data,
-        totalQuantity: action.paylod.totalQuantity,
-        totalAmount: action.paylod.totalAmount,
-
-
+        // }
+    
+      case ActionType.REMOVEITEMFROMCART:
+        const id = action.payload;
+        existingItem = state.items.find(item => item.id === id);
+        
+        if (existingItem){
+        if (existingItem.quantity === 1 ){
+           state.items = state.items.filter(item => item.id !== id);
+        }
+        // }else{ 
+        //     existingItem.quantity--;
+        //     existingItem.totalPrice = existingItem.totalPrice- existingItem.price;  
+        // }
+        state.totalQuantity--;
+        state.totalAmount= state.totalAmount - existingItem.price;
+        state.cartstate=!state.cartstate;
       }
-
-    case REMOVE_FROM_CART:
-      return {}
-    case GET_CART:
-      return {
-        ...state,
-
-        items: action.paylod,
-
-      }
-
-    default:
       return state;
+      case ActionType.REMOVETHISITEMFROMCART:
+        const idd = action.payload;
+        const Item = state.items.find(item => item.id === idd);
+        if (Item){         
+          state.items = state.items.filter(item => item.id !== idd);
+          state.totalQuantity=state.totalQuantity-Item.quantity;
+          state.totalAmount= state.totalAmount-Item.totalPrice;
+       }
+        
+      return state;
+      case ActionType.GETCART:
+        const response= action.payload;
+        const cartdata= response.data;   
+        state.items.push(...cartdata.items);
+        state.totalAmount=cartdata.total;
+        state.totalQuantity=cartdata.totalquantity;
+        console.log(state.items);
+        return state;
 
+      default:
+          return state;
   }
-};
-
-export default cartReducer;
+}
+export default Cartreducer; 

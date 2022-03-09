@@ -4,8 +4,8 @@ import CartItem from './cartItem';
 import classes from './cartItem.module.css';
 
 
-export default function cartItems(props) {
-  const { items} = props;
+export default function cartItems({ items}) {
+  //const { items} = props;
   //console.log('items',items);
   return (
 
@@ -22,23 +22,23 @@ export default function cartItems(props) {
         </tr>
       </thead>
       <tbody>
-
-        {items.map((item) => (
-          <CartItem
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            price={item.price}
-            imageName={item.imageName}
-            quantity={item.quantity}
-            totalPrice={item.totalPrice} />
-        ))}
+  
+      { items.map((item) =>(    
+                <CartItem 
+                key={item.id}
+                id={item.id} 
+                name={item.name} 
+                price={item.price}
+                imageName={item.imageName}
+                quantity={item.quantity} 
+                totalPrice={item.totalPrice}/>
+             ))} 
         <tr>
           <td className={classes.actions} >
 
-
-            <input id="id_input" type="button" value="Checkout" name="proceed" className="checkout-button button alt wc-forward" />
-
+                
+                        <input type="button" value="Checkout" name="proceed" className="checkout-button button alt wc-forward"/>
+                  
           </td>
         </tr>
       </tbody>

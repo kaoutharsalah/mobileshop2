@@ -1,74 +1,120 @@
 
 import { useSelector } from 'react-redux';
 import classes from './cart.module.css';
-
+import { useDispatch} from "react-redux";
+import axios from "axios";
+import{ ActionType} from "../../store/action/actionType";
 function CatItem(props) {
 
-    const { id, name, price, quantity, totalPrice, imageName } = props;
-    let cartItems = useSelector((state) => state.cart.items);
-    const existingItem = cartItems.find((item) => item.id === id);
-    const AddToCartHandler = () => {
-        if (!existingItem) {
+    
 
-            cartItems.push({
 
-                id: id,
 
-                name: name,
-
-                imageName: imageName,
-
-                price: priceafterdiscount,
-
-                quantity: 1,
-
-                totalPrice: priceafterdiscount,
-
-            });
-
-        } else {
-
-            existingItem.quantity++;
-
-            existingItem.totalPrice = (existingItem.totalPrice + priceafterdiscount);
-
+    const {id , name, price, quantity ,totalPrice,imageName} = props;
+    const dispatch = useDispatch();
+    let cartItems = useSelector((state) =>  state.Cart.items);
+    const cartQuantity = useSelector((state)=>state.Cart.totalQuantity);
+    const cartAmount = useSelector((state)=> state.Cart.totalAmount);
+    const existingItem = cartItems.find(item => item.id === id );
+    
+    console.log(quantity);
+    const removeItemHandler=async()=>{
+        if (existingItem){
+            if (existingItem.quantity === 1 ){
+                cartItems = cartItems.filter((item) => item.id !== id);
+    
+            }else{ 
+                existingItem.quantity--;
+                existingItem.totalPrice = existingItem.totalPrice- existingItem.price;  
+            }
         }
-
-
-
-        const params = {
-
-            total: cartAmount + priceafterdiscount,
-
-            totalquantity: cartQuantity + 1,
-
-            items: [
-
-                ...cartItems,
-
-            ]
-
+        const params = {    
+            total : cartAmount-price,  
+            totalquantity:cartQuantity-1,         
+            items :[
+            ...cartItems,
+           ]
         }
-
-
-
-        axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
-
-            .then((response) => {
-                //console.log(response);
-                addToCart(response);
-
-
-
-            })
-
+        await axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
+        .then( ( response)=>{
+             dispatch({
+                type: ActionType.REMOVEITEMFROMCART,
+                payload:id,
+            }) 
+            
+        })
+          
     }
+    const onchangequantityhandler=()=>{
+        dispatch(addItemHandler);
+    }
+    const addItemHandler=async()=>{
+        if (!existingItem){
+            cartItems.push({
+              id:id,
+              name: name,
+              imageName: imageName,
+              price: price, 
+              quantity:1,
+              totalPrice: price,
+              });
+        }else{
+          existingItem.quantity++;
+          existingItem.totalPrice = (existingItem.totalPrice + price);  
+         }
+        const params = {    
+            total : cartAmount+price,  
+            totalquantity:cartQuantity+1,         
+            items :[
+            ...cartItems,
+      
+           ]
+        }
+        const param ={
+            id: id,
+            name: name,
+            imageName: imageName,          
+            price: price,
+            quantity: 1,
+            totalPrice: price,        
+        }
+        await axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
+        .then( ( response)=>{
+            dispatch({
+                type: ActionType.ADDITEMTOCART,
+                payload:param,
+               }) 
+          
+        })
+    } 
+    
+    const removethisItem=()=>{
+        if (existingItem){
+            if (existingItem.quantity ){
+                cartItems = cartItems.filter((item) => item.id !== id);
+    
+            }
+        }
+        const params = {    
+            total : cartAmount-totalPrice,  
+            totalquantity:cartQuantity-quantity,         
+            items :[
+            ...cartItems,
+           ]
+        }
+        axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
+        dispatch({
+            type: ActionType.REMOVETHISITEMFROMCART,
+            payload:id,
+        })  
+    }
+    
 
 
     return (
         <tr className="cart_item">
             <td className={classes.product_remove}>
-                <a title="Remove this item" className="remove" href="#">×</a>
+                <a title="Remove this item" className="remove" onClick={removethisItem} >×</a>
             </td>
 
             <td className={classes.product_thumbnail}>
@@ -85,14 +131,14 @@ function CatItem(props) {
 
             <td className={classes.product_quantity}>
                 <div className={classes.quantity}>
-                    <input type="button" className={classes.minus} value="-" />
+                    <input type="button" className={classes.minus} onClick={removeItemHandler} value="-" />
                     <input type="number" size={4} className="input-text qty text" title="Qty" value="1" min="0" step="1" />
-                    <input type="button" className={classes.plus} onClick={AddToCartHandler} value="+" />
+                    <input type="button" className={classes.plus} onClick={onchangequantityhandler} value="+" />
                 </div>
             </td>
 
             <td className={classes.product_subtotal}>
-                <span className={classes.amount}>15.00 €</span>
+                <span className={classes.amount}>{totalPrice}€</span>
             </td>
         </tr>
 

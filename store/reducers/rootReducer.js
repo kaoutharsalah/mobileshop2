@@ -8,7 +8,7 @@ import {productsReducer} from './[id]';
 const rootReducers = combineReducers({
   categoriesReducer : categoriesReducer,
   productsReducer : productsReducer,
-  cart: cartReducer,
+    Cart: cartReducer,
   allProducts: ProductsReducer,
   product: selectedProductsReducer,
 });
