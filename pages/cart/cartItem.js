@@ -14,12 +14,12 @@ function CatItem(props) {
     const dispatch = useDispatch();
     let cartItems = useSelector((state) =>  state.Cart.items);
     const cartQuantity = useSelector((state)=>state.Cart.totalQuantity);
-    const cartAmount = useSelector((state)=> state.Cart.totalAmount);
+    const cartAmount = useSelector((state)=>state.Cart.totalAmount );//=> {return  state.Cart.totalAmount} //=> state.Cart.totalAmount
     const existingItem = cartItems.find(item => item.id === id );
     
     console.log(quantity);
     const removeItemHandler=async()=>{
-        if (existingItem){
+        //if (existingItem){
             if (existingItem.quantity === 1 ){
                 cartItems = cartItems.filter((item) => item.id !== id);
     
@@ -27,7 +27,7 @@ function CatItem(props) {
                 existingItem.quantity--;
                 existingItem.totalPrice = existingItem.totalPrice- existingItem.price;  
             }
-        }
+        //}
         const params = {    
             total : cartAmount-price,  
             totalquantity:cartQuantity-1,         
@@ -35,7 +35,7 @@ function CatItem(props) {
             ...cartItems,
            ]
         }
-        await axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
+        await  axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
         .then( ( response)=>{
              dispatch({
                 type: ActionType.REMOVEITEMFROMCART,
@@ -88,7 +88,7 @@ function CatItem(props) {
         })
     } 
     
-    const removethisItem=()=>{
+   const removethisItem=()=>{
         if (existingItem){
             if (existingItem.quantity ){
                 cartItems = cartItems.filter((item) => item.id !== id);
@@ -108,6 +108,13 @@ function CatItem(props) {
             payload:id,
         })  
     }
+    /*const removethisItem=()=>{
+        axios.delete('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff/items?id='+id)
+        dispatch({
+            type: ActionType.REMOVETHISITEMFROMCART,
+            payload:id,
+        })  
+    }*/
     
 
 
@@ -132,7 +139,7 @@ function CatItem(props) {
             <td className={classes.product_quantity}>
                 <div className={classes.quantity}>
                     <input type="button" className={classes.minus} onClick={removeItemHandler} value="-" />
-                    <input type="number" size={4} className="input-text qty text" title="Qty" value="1" min="0" step="1" />
+                    <input type="number" size={4} className="input-text qty text" title="Qty" value={quantity} min="0" step="1" />
                     <input type="button" className={classes.plus} onClick={onchangequantityhandler} value="+" />
                 </div>
             </td>

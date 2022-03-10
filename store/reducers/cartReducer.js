@@ -22,7 +22,8 @@ const Cartreducer=(state = initialState , action )=>{
               imageName: newItem.imageName,
               price: newItem.price, 
               quantity:newItem.quantity,
-              totalPrice: newItem.price,        
+              totalPrice: newItem.price,
+             
           });
         }
         // else {
@@ -31,15 +32,7 @@ const Cartreducer=(state = initialState , action )=>{
         // }
         state.totalQuantity++;
         state.totalAmount=state.totalAmount+newItem.price;
-        state.cartstate=!state.cartstate;
         return state;
-        // return {
-        //   ...state,
-        //   items : action.payload.items,
-        //   totalQuantity: action.payload.total,
-        //   totalAmount : action.payload.totalquantity,
-
-        // }
     
       case ActionType.REMOVEITEMFROMCART:
         const id = action.payload;
@@ -55,7 +48,6 @@ const Cartreducer=(state = initialState , action )=>{
         // }
         state.totalQuantity--;
         state.totalAmount= state.totalAmount - existingItem.price;
-        state.cartstate=!state.cartstate;
       }
       return state;
       case ActionType.REMOVETHISITEMFROMCART:
@@ -69,8 +61,8 @@ const Cartreducer=(state = initialState , action )=>{
         
       return state;
       case ActionType.GETCART:
-        const response= action.payload;
-        const cartdata= response.data;   
+        const cart= action.payload;
+        const cartdata= cart.data;   
         state.items.push(...cartdata.items);
         state.totalAmount=cartdata.total;
         state.totalQuantity=cartdata.totalquantity;

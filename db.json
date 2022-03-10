@@ -4263,202 +4263,34 @@
   "carts": [
     {
       "id": "e364b282-6460-4665-bfc8-1c5bb68f18ff",
-      "total": 667.51,
+      "total": 1953.8999999999999,
       "subTotal": 0,
       "tax": 20,
-      "totalquantity": 2,
+      "totalquantity": 5,
       "items": [
         {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 2,
-          "totalPrice": 568.6200000000001
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
+          "id": 4004,
+          "name": "huawei mate 20 lite r1.jpg",
+          "imageName": "huawei-mate-20-lite-r1.jpg",
+          "price": 351.44,
           "quantity": 1,
-          "totalPrice": 284.31
+          "totalPrice": 351.44
         },
         {
-          "id": 1003,
-          "name": "apple ipad air 2 new",
-          "imageName": "apple-ipad-air-2-new.jpg",
-          "price": 383.2,
+          "id": 5004,
+          "name": "sony xperia 10 plus",
+          "imageName": "sony-xperia-10-plus-.jpg",
+          "price": 261.34,
           "quantity": 1,
-          "totalPrice": 383.2
+          "totalPrice": 261.34
         },
         {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 2,
-          "totalPrice": 568.62
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 1,
-          "totalPrice": 284.31
-        },
-        {
-          "id": 1003,
-          "name": "apple ipad air 2 new",
-          "imageName": "apple-ipad-air-2-new.jpg",
-          "price": 383.2,
-          "quantity": 1,
-          "totalPrice": 383.2
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 2,
-          "totalPrice": 568.62
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 1,
-          "totalPrice": 284.31
-        },
-        {
-          "id": 1003,
-          "name": "apple ipad air 2 new",
-          "imageName": "apple-ipad-air-2-new.jpg",
-          "price": 383.2,
-          "quantity": 1,
-          "totalPrice": 383.2
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 2,
-          "totalPrice": 568.62
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 1,
-          "totalPrice": 284.31
-        },
-        {
-          "id": 1003,
-          "name": "apple ipad air 2 new",
-          "imageName": "apple-ipad-air-2-new.jpg",
-          "price": 383.2,
-          "quantity": 1,
-          "totalPrice": 383.2
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 3,
-          "totalPrice": 852.9300000000001
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 1,
-          "totalPrice": 284.31
-        },
-        {
-          "id": 1003,
-          "name": "apple ipad air 2 new",
-          "imageName": "apple-ipad-air-2-new.jpg",
-          "price": 383.2,
-          "quantity": 1,
-          "totalPrice": 383.2
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 2,
-          "totalPrice": 568.62
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 1,
-          "totalPrice": 284.31
-        },
-        {
-          "id": 1003,
-          "name": "apple ipad air 2 new",
-          "imageName": "apple-ipad-air-2-new.jpg",
-          "price": 383.2,
-          "quantity": 1,
-          "totalPrice": 383.2
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 2,
-          "totalPrice": 568.62
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 1,
-          "totalPrice": 284.31
-        },
-        {
-          "id": 1003,
-          "name": "apple ipad air 2 new",
-          "imageName": "apple-ipad-air-2-new.jpg",
-          "price": 383.2,
-          "quantity": 1,
-          "totalPrice": 383.2
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 2,
-          "totalPrice": 568.62
-        },
-        {
-          "id": 1002,
-          "name": "apple ipad 97 2018",
-          "imageName": "apple-ipad-97-2018.jpg",
-          "price": 284.31,
-          "quantity": 1,
-          "totalPrice": 284.31
-        },
-        {
-          "id": 1003,
-          "name": "apple ipad air 2 new",
-          "imageName": "apple-ipad-air-2-new.jpg",
-          "price": 383.2,
-          "quantity": 1,
-          "totalPrice": 383.2
+          "id": 3003,
+          "name": "lg g pad iv 8.0 fhd",
+          "imageName": "lg-g-pad-iv-8.0-fhd.jpg",
+          "price": 447.04,
+          "quantity": 5,
+          "totalPrice": 2235.2000000000003
         }
       ]
     }

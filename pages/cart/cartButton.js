@@ -8,9 +8,10 @@ import { useEffect } from "react";
 import axios from "axios";
 import {getCart} from "../../store/action/cartAction";
 import {ActionType} from "../../store/action/actionType";
+
 export default function cartButton() {
 
-    const dispatch = useDispatch();
+  /* const dispatch = useDispatch();
     const  [Amount ,Setamount] = useState();
     const  [Quantity ,Setquantity] = useState();
     const etat = useSelector((state)=>state.Cart.cartstate);
@@ -28,12 +29,12 @@ export default function cartButton() {
             
             Setquantity(response.data.totalquantity);}); 
 
-}, [etat])
-const cartstate = useSelector((state)=>state.Cart.cartstate);
+}, [etat])*/
+    //const cartstate = useSelector((state)=>state.Cart.cartstate);
     const cartQuantity = useSelector((state)=>state.Cart.totalQuantity);
     
     //console.log({cartQuantity});
-    const cartAmount = useSelector((state)=> state.Cart.totalAmount);
+    const cartAmount = useSelector((state)=> state.Cart.totalAmount.toPrecision(4));
     //console.log({cartAmount});
     return (
         <div className="col-sm-4">
@@ -41,9 +42,9 @@ const cartstate = useSelector((state)=>state.Cart.cartstate);
                 <button className={classes.item}>
 
                     Cart :
-                    <span className={classes.cart_amunt}> {Amount}€ </span>
+                    <span className={classes.cart_amunt}> {cartAmount}€ </span>
                     <i className="fa fa-shopping-cart"> </i>
-                    <span className={classes.product_count}> {Quantity} </span>
+                    <span className={classes.product_count}> {cartQuantity } </span>
 
                 </button>
             </Link>

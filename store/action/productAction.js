@@ -1,5 +1,5 @@
 
-import { GET_PRODUCTS , SET_PRODUCTS ,SELECTED_PRODUCT, REMOVE_SELECTED_PRODUCT } from '../Reduxtype';
+import { GET_PRODUCTS } from '../Reduxtype';
 
 
 import GetApiProducts from './apiProduits';

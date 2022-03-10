@@ -78,7 +78,7 @@ const  Product = (props ) => {
              </Link>
           </h2>
           <div className={classes.product_carousel_price}>
-          <ins>${priceafterdiscount}</ins> <del> ${price}</del>
+          <ins>${priceafterdiscount.toPrecision(4)}</ins> <del> ${price}</del>
           </div>
 
           <div className={classes.product_option_shop}>
