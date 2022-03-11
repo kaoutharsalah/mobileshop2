@@ -10,8 +10,17 @@ import {getCart} from "../../store/action/cartAction";
 import {ActionType} from "../../store/action/actionType";
 
 export default function cartButton() {
-
-  /* const dispatch = useDispatch();
+    /*const dispatch = useDispatch();
+  
+    useEffect(() => {
+      axios.get("http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff").then((response) => {
+        dispatch({
+          type: ActionType.GETCART,
+          payload: response,
+        });
+      });
+    }, []);*/
+ /* const dispatch = useDispatch();
     const  [Amount ,Setamount] = useState();
     const  [Quantity ,Setquantity] = useState();
     const etat = useSelector((state)=>state.Cart.cartstate);
@@ -44,7 +53,7 @@ export default function cartButton() {
                     Cart :
                     <span className={classes.cart_amunt}> {cartAmount}€ </span>
                     <i className="fa fa-shopping-cart"> </i>
-                    <span className={classes.product_count}> {cartQuantity } </span>
+                    <span className={classes.product_count}> {cartQuantity} </span>
 
                 </button>
             </Link>

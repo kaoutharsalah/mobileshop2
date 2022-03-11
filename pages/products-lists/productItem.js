@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import classes from "./product-item.module.css";
 import Link from "next/link";

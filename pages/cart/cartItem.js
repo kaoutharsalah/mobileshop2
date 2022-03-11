@@ -14,20 +14,20 @@ function CatItem(props) {
     const dispatch = useDispatch();
     let cartItems = useSelector((state) =>  state.Cart.items);
     const cartQuantity = useSelector((state)=>state.Cart.totalQuantity);
-    const cartAmount = useSelector((state)=>state.Cart.totalAmount );//=> {return  state.Cart.totalAmount} //=> state.Cart.totalAmount
+    const cartAmount = useSelector((state)=> {return  state.Cart.totalAmount});//=> {return  state.Cart.totalAmount} //=> state.Cart.totalAmount
     const existingItem = cartItems.find(item => item.id === id );
     
     console.log(quantity);
-    const removeItemHandler=async()=>{
-        //if (existingItem){
+    const removeItemHandler=()=>{
+        if (existingItem){
             if (existingItem.quantity === 1 ){
-                cartItems = cartItems.filter((item) => item.id !== id);
+                cartItems = cartItems.filter(item => item.id !== id);
     
             }else{ 
                 existingItem.quantity--;
                 existingItem.totalPrice = existingItem.totalPrice- existingItem.price;  
             }
-        //}
+        }
         const params = {    
             total : cartAmount-price,  
             totalquantity:cartQuantity-1,         
@@ -35,7 +35,7 @@ function CatItem(props) {
             ...cartItems,
            ]
         }
-        await  axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
+        axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
         .then( ( response)=>{
              dispatch({
                 type: ActionType.REMOVEITEMFROMCART,
@@ -48,7 +48,7 @@ function CatItem(props) {
     const onchangequantityhandler=()=>{
         dispatch(addItemHandler);
     }
-    const addItemHandler=async()=>{
+    const addItemHandler=()=>{
         if (!existingItem){
             cartItems.push({
               id:id,
@@ -66,10 +66,11 @@ function CatItem(props) {
             total : cartAmount+price,  
             totalquantity:cartQuantity+1,         
             items :[
-            ...cartItems,
+             ...cartItems,
       
            ]
         }
+        console.log(cartItems);
         const param ={
             id: id,
             name: name,
@@ -78,7 +79,7 @@ function CatItem(props) {
             quantity: 1,
             totalPrice: price,        
         }
-        await axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
+        axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
         .then( ( response)=>{
             dispatch({
                 type: ActionType.ADDITEMTOCART,
@@ -87,7 +88,6 @@ function CatItem(props) {
           
         })
     } 
-    
    const removethisItem=()=>{
         if (existingItem){
             if (existingItem.quantity ){
@@ -140,7 +140,7 @@ function CatItem(props) {
                 <div className={classes.quantity}>
                     <input type="button" className={classes.minus} onClick={removeItemHandler} value="-" />
                     <input type="number" size={4} className="input-text qty text" title="Qty" value={quantity} min="0" step="1" />
-                    <input type="button" className={classes.plus} onClick={onchangequantityhandler} value="+" />
+                    <input type="button" className={classes.plus} onClick={addItemHandler} value="+" />
                 </div>
             </td>
 

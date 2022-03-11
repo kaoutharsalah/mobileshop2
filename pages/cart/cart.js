@@ -12,6 +12,8 @@ import { GET_CART } from '../../store/action/actionType';
 
 
 const Cart = () => {
+
+ 
   const cartAmount = useSelector((state)=> state.Cart.totalAmount);
   const taxe = cartAmount*0.2;
   //console.log(taxe)
@@ -63,17 +65,17 @@ const Cart = () => {
                           <tbody>
                             <tr className="cart-subtotal">
                               <th>Cart Subtotal</th>
-                              <td><span className="amount">{cartAmount}  €</span></td>
+                              <td><span className="amount">{cartAmount.toPrecision(4)}  €</span></td>
                             </tr>
 
                             <tr className={classes.shipping_calculator} >
                               <th>Taxe (20%)</th>
-                              <td>{taxe}  €</td>
+                              <td>{taxe.toPrecision(4)}  €</td>
                             </tr>
 
                             <tr className="order-total">
                               <th>Order Total</th>
-                              <td><strong><span className="amount">{totale}€</span></strong>{" "} </td>
+                              <td><strong><span className="amount">{totale.toPrecision(4)}€</span></strong>{" "} </td>
                             </tr>
                           </tbody>
                         </table>
