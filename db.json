@@ -4263,20 +4263,11 @@
   "carts": [
     {
       "id": "e364b282-6460-4665-bfc8-1c5bb68f18ff",
-      "total": 392.3999999999999,
+      "total": 366.1200000000001,
       "subTotal": 0,
       "tax": 20,
-      "totalquantity": 2,
-      "items": [
-        {
-          "id": 2003,
-          "name": "samsung galaxy a10",
-          "imageName": "samsung-galaxy-a10.jpg",
-          "price": 196.2,
-          "quantity": 3,
-          "totalPrice": 588.5999999999999
-        }
-      ]
+      "totalquantity": 1,
+      "items": []
     }
   ],
   "orders": [

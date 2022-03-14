@@ -6,7 +6,7 @@ const initialState = {
     totalQuantity:0,
     totalAmount: 0,
     tax: 0,
-    cartstate :true,
+    //cartstate :true,
    
 };
 const Cartreducer=(state = initialState , action )=>{
@@ -28,25 +28,27 @@ const Cartreducer=(state = initialState , action )=>{
       
         state.totalQuantity++;
         state.totalAmount=state.totalAmount+newItem.price;
-        state.cartstate=!state.cartstate;
+        //state.cartstate=!state.cartstate;
         return state;
       
       case ActionType.REMOVEITEMFROMCART:
-        const id = action.payload;
-        existingItem = state.items.find(item => item.id === id);
+        const params = action.payload;
+        //const id = action.payload;
+        //existingItem = state.items.find(item => item.id === id);
         
-        if (existingItem){
-        if (existingItem.quantity === 1 ){
-           state.items = state.items.filter(item => item.id !== id);
-        }
+        //if (existingItem){
+        //if (existingItem.quantity === 1 ){
+          // state.items = state.items.filter(item => item.id !== id);
+        //}
         // }else{ 
         //     existingItem.quantity--;
         //     existingItem.totalPrice = existingItem.totalPrice- existingItem.price;  
         // }
-        state.totalQuantity--;
-        state.totalAmount= state.totalAmount - existingItem.price;
-        state.cartstate=!state.cartstate;
-      }
+       
+        //state.totalQuantity--;
+        //state.totalAmount= state.totalAmount - existingItem.price;
+        //state.cartstate=!state.cartstate;
+      //}
       return state;
       case ActionType.REMOVETHISITEMFROMCART:
         const idd = action.payload;

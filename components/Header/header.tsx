@@ -12,7 +12,7 @@ export default function Header() {
             <div className={classes.logo} style={{ width: 100, height: 100 }}>
               <h1>
                 <Link href="/index">
-                  <img src="img/logo.png" />
+                  <img src="/img/logo.png" />
                 </Link>
               </h1>
             </div>

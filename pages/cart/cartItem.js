@@ -2,13 +2,11 @@
 import { useSelector } from 'react-redux';
 import classes from './cart.module.css';
 import { useDispatch} from "react-redux";
+import { useEffect } from "react";
 import axios from "axios";
 import{ ActionType} from "../../store/action/actionType";
 function CatItem(props) {
-
-    
-
-
+   
 
     const {id , name, price, quantity ,totalPrice,imageName} = props;
     const dispatch = useDispatch();
@@ -18,14 +16,21 @@ function CatItem(props) {
     const existingItem = cartItems.find(item => item.id === id );
     
     console.log(quantity);
+
     const removeItemHandler=()=>{
+        console.log('quantity1', existingItem.quantity )
+        
+     
         if (existingItem){
-            if (existingItem.quantity === 1 ){
-                cartItems = cartItems.filter(item => item.id !== id);
-    
+           
+            if (existingItem.quantity ===1){
+               
+                cartItems = cartItems.filter(item => item.id!==  id);
+            
             }else{ 
                 existingItem.quantity--;
                 existingItem.totalPrice = existingItem.totalPrice- existingItem.price;  
+                console.log('quantity3', existingItem.quantity )
             }
         }
         const params = {    
@@ -136,11 +141,11 @@ function CatItem(props) {
                 <span className="amount">{price}€</span>
             </td>
 
-            <td className={classes.product_quantity}>
-                <div className={classes.quantity}>
-                    <input type="button" className={classes.minus} onClick={removeItemHandler} value="-" />
-                    <input type="number" size={4} className="input-text qty text" title="Qty" value={quantity} min="0" step="1" />
-                    <input type="button" className={classes.plus} onClick={addItemHandler} value="+" />
+            <td className={classes.product_quantity}   >
+                <div className={classes.quantity} >
+                    <input type="button" className={classes.minus} onClick={removeItemHandler} defaultValue="-" key={id} />
+                  {quantity}
+                    <input type="button" className={classes.plus} onClick={addItemHandler} defaultValue="+" />
                 </div>
             </td>
 

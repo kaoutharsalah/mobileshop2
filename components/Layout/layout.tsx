@@ -9,13 +9,13 @@ import Navbar from "../Navbar/navbar";
 
 export default function Layout({ children }: PropsWithChildren<any>) {
   return (
-    <body className={classes.body}>
-      <div>
+    <div className={classes.body}>
+     
         <Header/>
         <Navbar></Navbar>
         <main>{children}</main>
         <Footer />
-      </div>
-    </body>
+
+    </div>
   );
 }

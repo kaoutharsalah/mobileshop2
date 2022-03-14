@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/Cart/cart.js", "pages/Components/Footer/footer.js", "pages/Components/Header/header.js", "pages/Components/Layout/layout.js", "pages/Components/Navbar/navbar.tsx", "pages/Components/NavLink/NavLink.js", "monstore/reducers/index.js", "pages/cart/cartButton.js", "pages/cart/cartItems.js", "pages/cart/cartItem.js", "pages/products-lists/productItem.js", "pages/index.js"  ],
+, "pages/Cart/cart.js", "pages/Components/Footer/footer.js", "pages/Components/Header/header.js", "pages/Components/Layout/layout.js", "pages/Components/Navbar/navbar.tsx", "pages/Components/NavLink/NavLink.js", "monstore/reducers/index.js", "pages/cart/cartButton.js", "pages/cart/cartItems.js", "pages/cart/cartItem.js", "pages/products-lists/productItem.js", "pages/index.js", "pages/products-lists/[...id].tsx"  ],
   "exclude": [
     "node_modules"
   ]
