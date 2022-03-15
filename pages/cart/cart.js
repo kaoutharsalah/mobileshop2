@@ -19,7 +19,8 @@ const Cart = () => {
   //console.log(taxe)
   const totale= cartAmount+taxe;
   const cartItems = useSelector((state) => state.Cart.items);
-  //console.log(cartItems)
+  const cart = useSelector((state) => state.Cart);
+  console.log('cart',cart);
   return (
     <div>
       <Layout>

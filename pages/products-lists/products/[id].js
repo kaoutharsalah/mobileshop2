@@ -81,7 +81,7 @@ function Product() {
                                     <div className="product-content-right">
                                         <div className="product-breadcroumb">
                                             <Link href="/">Home</Link>
-                                            <a href="">Category Name</a>
+                                            <a href="">Hawei</a>
                                             <a href="" >{products && products[0] && products[0].name}</a>
                                         </div>
                                         <div className="row">
@@ -103,23 +103,7 @@ function Product() {
                                                     <div className="product-inner-price">
                                                         <ins>${products && products[0] && products[0].price}</ins> <del>${products && products[0] && products[0].price-(products && products[0] && products[0].discountRate/100)}</del>
                                                     </div>
-                                                    <form action="" className="cart">
-                                                        <div className="quantity">
-                                                            <input
-                                                                type="number"
-                                                                size={4}
-                                                                className="input-text qty text"
-                                                                title="Qty"
-                                                                defaultValue={1}
-                                                                name="quantity"
-                                                                min={1}
-                                                                step={1}
-                                                            />
-                                                        </div>
-                                                        <button className="add_to_cart_button" type="submit">
-                                                            Add to cart
-                                                        </button>
-                                                    </form>
+                                                
                                                     <div className="product-inner-category">
                                                         <h2>Product Description</h2>
                                                         <p>

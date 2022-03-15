@@ -2,8 +2,25 @@ import React from "react";
 import classes from "./header.module.css";
 import Link from "next/link";
 import CartButton from '../../pages/cart/cartButton';
+import { connect, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import {getCart} from "../../store/action/cartAction";
+import {ActionType} from "../../store/action/actionType";
 
 export default function Header() {
+ /* const dispatch = useDispatch();
+  
+    useEffect(() => {
+      axios.get("http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff").then((response) => {
+        dispatch({
+          type: ActionType.GETCART,
+          payload: response,
+        });
+      });
+    }, []);*/
   return (
     <div className="site-branding-area">
       <div className="container">
