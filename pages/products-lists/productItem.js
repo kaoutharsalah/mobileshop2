@@ -13,51 +13,60 @@ const  Product = (props ) => {
   const {id , name, imageName, price,discountRate, priceafterdiscount ,totalPrice, quantity} = props;
   
   const dispatch = useDispatch();
-    const cartItems = useSelector((state) =>  state.Cart.items);
+  const cartItems = useSelector((state) =>  state.Cart.items);
+  const cart = useSelector((state) =>  state.Cart);
     //console.log(cartItems.price*cartItems*quantity)
     const cartQuantity = useSelector((state)=>state.Cart.totalQuantity);
     const cartAmount = useSelector((state)=> state.Cart.totalAmount);
     const existingItem = cartItems.find(item => item.id === id );
+
+    
+    
     const AddToCartHandler = ()=>{
+      const param ={
+        id: id,
+        name: name,
+        imageName: imageName,
+        price: priceafterdiscount,
+        quantity: 1,
+        totalPrice: priceafterdiscount,
         
-        if (!existingItem){
-            cartItems.push({
-              id: id,
-              name: name,
-              imageName: imageName,
-              price: priceafterdiscount,
-              quantity:1,
-              totalPrice: priceafterdiscount,
-             
-              });
-        }else{
-           existingItem.quantity++;
-          existingItem.totalPrice = (existingItem.totalPrice + priceafterdiscount);  
-         }
-        
-        const params = { 
-            total : cartAmount+priceafterdiscount,  
-            totalquantity:cartQuantity+1,       
-            items :[
-          ...cartItems,
-         ]
-        }
-        const param ={
-            id: id,
-            name: name,
-            imageName: imageName,
-            price: priceafterdiscount,
-            quantity: 1,
-            totalPrice: priceafterdiscount,
-            
-        }
-        axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
+    } 
+      const params = { 
+        total : cartAmount+priceafterdiscount,  
+        totalquantity:cartQuantity+1,       
+        items :[
+      ...cartItems,
+      param
+     ]}
+
+      axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
         .then( res => {
-                dispatch({
-                    type: ActionType.ADDITEMTOCART,
-                    payload: param,
-                });
+          
+        dispatch({
+          type: ActionType.ADDITEMTOCART,
+          payload: param,
+      });
             })
+        
+        // if (!existingItem){
+        //     cartItems.push({
+        //       id: id,
+        //       name: name,
+        //       imageName: imageName,
+        //       price: priceafterdiscount,
+        //       quantity:1,
+        //       totalPrice: priceafterdiscount,
+             
+        //       });
+        // }else{
+        //    existingItem.quantity++;
+        //   existingItem.totalPrice = (existingItem.totalPrice + priceafterdiscount);  
+        //  }
+        
+        // }
+        
+        
     }
   return (
    

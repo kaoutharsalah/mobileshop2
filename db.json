@@ -4262,8 +4262,8 @@
   ],
   "carts": [
     {
-      "total": 383.1999999999999,
-      "totalquantity": 1,
+      "total": 5.684341886080802e-14,
+      "totalquantity": 0,
       "items": [
         {
           "id": 1003,
@@ -4271,7 +4271,7 @@
           "imageName": "apple-ipad-air-2-new.jpg",
           "price": 383.2,
           "quantity": 1,
-          "totalPrice": 383.1999999999999
+          "totalPrice": 383.2
         }
       ],
       "id": "e364b282-6460-4665-bfc8-1c5bb68f18ff"

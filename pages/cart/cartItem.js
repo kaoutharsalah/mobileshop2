@@ -15,19 +15,16 @@ function CatItem(props) {
     const existingItem = cartItems.find((item) => item.id === id);
     const removeItemHandler=()=>{
       console.log( quantity)
-     // if (existingItem){
+     /*if (existingItem){
           if (existingItem.quantity === 1 ){
               cartItems = cartItems.filter(item => item.id !== id);
-          if (existingItem.quantity ===2 ){
-            console.log('qte', quantity);
-            existingItem.quantity--;
-            existingItem.totalPrice = existingItem.totalPrice- existingItem.price;}
+          
           }
          else{ 
               existingItem.quantity --;
               existingItem.totalPrice = existingItem.totalPrice- existingItem.price;  
           }
-        //}
+        }*/
       const params = {    
           total : cartAmount-price,  
           totalquantity:cartQuantity-1,         
@@ -47,7 +44,7 @@ function CatItem(props) {
   }
     const addItemHandler=()=>{
       console.log( quantity)
-      if (!existingItem){
+    /*if (!existingItem){
           cartItems.push({
             id:id,
             name: name,
@@ -59,24 +56,25 @@ function CatItem(props) {
       }else{
         existingItem.quantity++;
         existingItem.totalPrice = (existingItem.totalPrice + price);  
-       }
+       }*/
+       const param ={
+        id: id,
+        name: name,
+        imageName: imageName,          
+        price: price,
+        quantity: 1,
+        totalPrice: price,        
+    }
+
       const params = {    
           total : cartAmount+price,  
           totalquantity:cartQuantity+1,         
           items :[
           ...cartItems,
-    
+          param
          ]
       }
-      const param ={
-          id: id,
-          name: name,
-          imageName: imageName,          
-          price: price,
-          quantity: 1,
-          totalPrice: price,        
-      }
-
+    
 
 
       axios.patch('http://localhost:3000/carts/e364b282-6460-4665-bfc8-1c5bb68f18ff', params)
@@ -95,12 +93,12 @@ function CatItem(props) {
 
        
   const removethisItem=()=>{
-    if (existingItem){
+    /*if (existingItem){
         if (existingItem.quantity ){
             cartItems = cartItems.filter((item) => item.id !== id);
 
         }
-    }
+    }*/
     const params = {    
         total : cartAmount-totalPrice,  
         totalquantity:cartQuantity-quantity,         
@@ -114,7 +112,9 @@ function CatItem(props) {
         payload:id,
     })  
 }
-  
+const onchangequantityhandler=()=>{
+    dispatch(addItemHandler);
+}
 const updateCartEntryQuantity = () => {}
 //const onAddCartEntryQuantity = () => {}
     return (
@@ -138,8 +138,8 @@ const updateCartEntryQuantity = () => {}
           <td className={classes.product_quantity}>
               <div className={classes.quantity }>
                 <input type="button" className={classes.minus} onClick={removeItemHandler} defaultValue="-" key={id}/> 
-                  <input type="number"  size={4} className="input-text qty text" title="Qty" value={quantity} min="0" step="1" onChange={updateCartEntryQuantity}/> 
-                  <input type="button" className={classes.plus} onClick={addItemHandler} defaultValue="+"/>
+                  <input type="number"  size={4} className="input-text qty text" title="Qty" value={quantity} min="0" step="1"/> 
+                  <input type="button" className={classes.plus} onClick={onchangequantityhandler} defaultValue="+"/>
               </div>
           </td>
 
